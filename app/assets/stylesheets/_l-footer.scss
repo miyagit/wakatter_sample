@@ -1,0 +1,14 @@
+.l-footer {
+  margin-top: auto;
+  background-color: $primary-blue;
+  font-family: Roboto;
+
+  &__addrees {
+    padding: 6px 0;
+    background-color: $blue;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    color: $white;
+  }
+}
