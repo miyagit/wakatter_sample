@@ -8,40 +8,7 @@
         margin-left: 16px;
       }
   }
-  &__category { // ヘッダーのカテゴリ一覧
-    position: relative;
-    padding-right: 20px;
-    font-size: 14px;
-    color: $dark-grey;
-      &:after {  // カテゴリ一覧横の矢印
-        content: '';
-        position: absolute;
-        right: 6px;
-        top: 8px;
-        box-sizing: border-box;
-        width: 4px;
-        height: 4px;
-        border: 4px solid transparent;
-        border-top: 4px solid $dark-grey;
-      }
-  }
-  &__box { // ヘッダーのカテゴリ一覧BOX
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: -20px;
-    padding: 8px 20px;
-    font-size: 14px;
-    border: 1px solid $light-blue;
-    border-radius: 2px;
-    background: $white;
-      &__category { // BOXの中身のカテゴリー
-        padding: 6px 0;
-      }
-  }
-  &__button {
 
-  }
   &__link { // グロナビのリンク
     font-size: 14px;
       a {
