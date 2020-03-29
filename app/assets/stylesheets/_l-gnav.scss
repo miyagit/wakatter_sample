@@ -4,18 +4,16 @@
   &__list {
     position: relative;
     @include flex(between, center);
-      > li:not(.l-gnav__box) { // ナビゲーションの並びに隙間をつくる
-        margin-left: 16px;
-      }
   }
 
   &__link { // グロナビのリンク
     font-size: 14px;
-      a {
-        color: $dark-grey;
-          &:hover {
-            color: $blue;
-          }
+    padding-right: 30px;
+    a {
+      color: $dark-grey;
+      &:hover {
+        color: $blue;
+      }
     }
   }
 }
