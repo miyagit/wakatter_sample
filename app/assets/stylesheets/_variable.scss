@@ -1,0 +1,34 @@
+// =============================================================================
+// サイト全体で使える変数を管理
+// =============================================================================
+
+// 汎用的に使える色
+$white: #FFF;
+$light-grey: #E5E8EF;
+$grey: #999FAF;
+$dark-grey: #575F74;
+$light-blue: #DBE5FF;
+$yellow: #E8B615;
+$dark-yellow: #dc9b09;
+
+// 背景色
+$bgcolor--grey: #FDFDFF; // すごく薄いグレー
+
+// リンク色
+$blue: #476FD3;
+$dark-blue: #132f77;
+
+// アイコンの色
+$pikawakaicon--grey: #C2C8D7;
+
+// シャドウの色
+$box-shadow: #E2E6EF;
+
+// Pikawakaのiconfontの変数
+$icomoon-font-family: "pikawakaicon" !default;
+$icomoon-font-path: "../iconfonts" !default;
+
+$pikawakaicon-wakatta: "\e900";
+$pikawakaicon-search: "\e901";
+$pikawakaicon-link: "\e902";
+$pikawakaicon-trash: "\e903";

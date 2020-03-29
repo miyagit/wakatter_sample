@@ -1,0 +1,103 @@
+// ボタンのコンポーネント
+
+.c-button {
+  box-shadow: 0 0 15px $box-shadow;
+  padding: 16px 24px;
+  font-size: 16px;
+  color: $white !important;
+
+    // 基本の四角い黄色いボタン
+    &--round-yellow {
+      @extend .c-button;
+      border-radius: 2px;
+      background-color: $yellow;
+        &:hover {
+          background-color: $dark-yellow;
+        }
+    }
+    // ボーダーで灰色のボタン
+    &--round-grey {
+      @extend .c-button;
+      border: 1px solid $grey;
+      border-radius: 9999px;
+      color: $grey !important;
+        &:hover {
+          border-color: $dark-grey;
+          color: $dark-grey !important;
+        }
+    }
+    // ヘッダーの無料会員登録ボタン
+    &--header {
+      @extend .c-button--round-yellow;
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+    // 記事一覧で使うわかった数ボタン
+    &--wakatta-number {
+      @extend .c-button;
+      @include flex(0, center);
+      border-radius: 2px;
+      box-shadow: 0 0 15px $box-shadow;
+      background-color: $yellow;
+      padding: 2px 8px 2px 34px;
+      font-size: 12px;
+        // 数字の部分
+        span {
+          font-size: 18px;
+          font-weight: bold;
+        }
+    }
+    // アンケートフォームのボタン
+    &--question {
+      @extend .c-button;
+      border-radius: 2px;
+      background-color: $yellow;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: bold;
+        &:hover {
+          background-color: $dark-yellow;
+        }
+    }
+    // もっと見るボタン
+    &--read-more {
+      @extend .c-button;
+      box-shadow: 0 0 15px $box-shadow;
+      border-radius: 2px;
+      background-color: $grey;
+      padding: 12px 20px;
+      font-size: 16px;
+        &:hover {
+          background-color: $dark-grey;
+        }
+    }
+    // 青いボタン
+    &--blue {
+      @extend .c-button;
+      background-color: $blue;
+        &:hover {
+          background-color: $dark-blue;
+        }
+    }
+    // 管理者代表のプロフィールを見るボタン
+    &--profile {
+      @extend .c-button--blue;
+      box-shadow: 0 0 15px #b0b4bd;
+      border-radius: 2px;
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+    // フッターの無料会員登録ボタン
+    &--footer-signup {
+      @extend .c-button--round-yellow;
+      box-shadow: 0 0 15px $box-shadow;
+      padding: 16px 24px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    &--footer-login {
+      @extend .c-button--round-grey;
+      padding: 14px;
+      font-size: 14px;
+    }
+}

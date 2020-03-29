@@ -1,0 +1,24 @@
+.l-header {
+  padding: 16px;
+  box-shadow: 0 0 15px $box-shadow;
+  background-color: $white;
+  padding: 16px 30px;
+  @include flex(between, center);
+  &__site {
+    &-title {
+      @include flex(start, center);
+    }
+
+    &-author {
+      display: inline-block;
+      padding-left: 10px;
+      color: #999faf;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  }
+  &__logo {
+    width: 230px;
+    height: 44px;
+  }
+}
