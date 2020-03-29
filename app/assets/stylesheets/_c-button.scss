@@ -29,7 +29,15 @@
   // ヘッダーの無料会員登録ボタン
   &--header {
     @extend .c-button--square-yellow;
-    padding: 10px 16px;
+    padding: 11px 22px;
+    font-weight: bold;
+  }
+
+  &--submit {
+    @extend .c-button--square-yellow;
+    padding: 17px 22px;
     font-size: 14px;
+    text-align: center;
+    font-family: NotoSansCJKjp;
   }
 }
