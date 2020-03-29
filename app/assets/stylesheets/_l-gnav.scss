@@ -2,17 +2,22 @@
 
 .l-gnav {
   &__list {
+    font-size: 16px;
     position: relative;
+    font-family: HiraginoSans-W3;
     @include flex(between, center);
+
+    li:last-child {
+      padding-left: 30px;
+    }
   }
 
   &__link { // グロナビのリンク
-    font-size: 14px;
-    padding-right: 30px;
     a {
       color: $dark-grey;
       &:hover {
         color: $blue;
+        text-decoration: underline;
       }
     }
   }
