@@ -16,11 +16,9 @@
       }
   }
   // ボーダーで灰色のボタン
-  &--round-grey {
+  &--square-light-blue {
     @extend .c-button;
-    border: 1px solid $grey;
-    border-radius: 9999px;
-    color: $grey !important;
+    background-color: $light-blue !important;
     &:hover {
       border-color: $dark-grey;
       color: $dark-grey !important;
@@ -32,12 +30,29 @@
     padding: 11px 22px;
     font-weight: bold;
   }
-
+  // ユーザー登録のボタン
   &--submit {
     @extend .c-button--square-yellow;
     padding: 17px 22px;
     font-size: 14px;
     text-align: center;
     font-family: NotoSansCJKjp;
+  }
+  // 検索ボタン
+  &--search {
+    @extend .c-button--square-yellow;
+    padding: 12px 54px;
+    font-family: NotoSansCJKjp;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  // 並び替えボタン
+  &--order {
+    @extend .c-button--square-light-blue;
+  }
+  // コメントを投稿する部分での会員登録ボタン
+  &--comment-registration {
+    padding: 7px 13px;
+    @extend .c-button--square-yellow;
   }
 }

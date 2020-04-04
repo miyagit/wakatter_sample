@@ -5,7 +5,7 @@
     %title WakatterSample
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header.l-header
@@ -28,7 +28,8 @@
                 = link_to 'ログイン', new_user_session_path
               %li.l-gnav__button
                 = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--header'
-    = yield
+    %main.l-main
+      = yield
     %footer.l-footer
       %address.l-footer__addrees
-        © 2020 Pikawaka. All rights reserved.
+        © 2020 Wakatter All rights reserved.

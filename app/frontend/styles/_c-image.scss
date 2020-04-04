@@ -1,0 +1,10 @@
+.c-image {
+  &__round {
+    border-radius: 50%;
+  }
+
+  &__square {
+    border-radius: 2px;
+    border: solid 1px $light-blue;
+  }
+}

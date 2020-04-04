@@ -1,0 +1,122 @@
+.c-timeline {
+  &__header {
+    @include flex(between, center);
+
+    &--left {
+      img {
+        display: inline-block;
+        width: 40px;
+      }
+
+      a {
+        display: inline-block;
+        font-size: 16px;
+        vertical-align: top;
+        margin: 6px 0 0 9px;
+        font-family: NotoSansCJKjp;
+
+        &.squarebox {
+          font-size: 14px;
+          color: $dark-grey;
+          padding: 6px 10px;
+          border-radius: 2px;
+          border: solid 1px $grey;
+          margin: 3px 16px 0 30px;
+        }
+      }
+
+      time {
+        font-family: Roboto;
+        font-size: 14px;
+        vertical-align: top;
+        display: inline-block;
+        margin-top: 10px;
+      }
+    }
+
+    &--right {
+    }
+  }
+
+  &__main {
+    &-title {
+      font-size: 28px;
+      font-family: NotoSansCJKjp;
+      color: $blue;
+      margin-top: 10px;
+    }
+
+    &-url {
+      position: relative;
+      height: 38px;
+      border-radius: 2px;
+      border: solid 1px $light-blue;
+      background-color: $pale-blue;
+      margin: 20px 0;
+
+      a {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        font-family: Roboto;
+        font-size: 14px;
+        color: $dark-grey;
+      }
+    }
+
+    &-description {
+      font-family: NotoSansCJKjp;
+      font-size: 16px;
+      color: $dark-grey;
+    }
+
+    img {
+      width: 400px;
+      height: 250px;
+      border-radius: 2px;
+      margin: 30px auto;
+    }
+  }
+
+  &__footer {
+    &-label {
+      font-family: NotoSansCJKjp;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    &__comment-area {
+      margin: 20px 0 50px;
+      background-color: $pale-blue;
+      border-radius: 2px;
+      padding-bottom: 20px;
+    }
+
+    &__commentbox {
+      padding: 20px 0 0 20px;
+
+      &-username {
+        font-family: Roboto;
+        font-size: 14px;
+        display: inline-block;
+      }
+
+      &-time {
+        font-family: Roboto;
+        font-size: 14px;
+        color: $dark-grey;
+        display: inline-block;
+        margin-left: 10px;
+      }
+
+      &-description {
+        margin: 15px 0 30px;
+        font-size: 14px;
+        font-family: NotoSansCJKjp;
+      }
+    }
+  }
+}
