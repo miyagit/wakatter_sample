@@ -24,13 +24,14 @@
               %span.p-dropdown-dots
             %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
               %li.dropdown-item
-                %a{:href => "https://twitter.com/intent/tweet?text=「f」が投稿されました。https://feverstaging.appspot.com/communities/teamfever/requests/12&hashtags=feverjp&via=fe_verjp", :target => "_blank"}
-                  記事詳細
+                = icon('fas', 'book')
+                = link_to '記事詳細', '#'
               %li.dropdown-item
-                %a{:href => "https://www.facebook.com/sharer/sharer.php?u=https://feverstaging.appspot.com/communities/teamfever/requests/12", :target => "_blank"} 編集
+                = icon('fas', 'edit')
+                = link_to '編集', '#'
               %li.dropdown-item
-                %a{:href => "https://www.facebook.com/sharer/sharer.php?u=https://feverstaging.appspot.com/communities/teamfever/requests/12", :target => "_blank"} 削除
-
+                = icon('fas', 'trash')
+                = link_to '削除', '#'
       .c-timeline__main
         = link_to 'ああああああああああああ', '#', class: 'c-timeline__main-title'
         = link_to 'https://pikawaka.com/rails/enum', '#',  class: 'c-timeline__main-url'

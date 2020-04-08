@@ -17,6 +17,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass', '~> 3.3'
 gem 'erb2haml', '~> 0.1'
 gem 'haml-rails', '~> 1.0'
+gem 'font-awesome-sass'
 
 # Environment variable
 gem 'dotenv-rails', '~> 2.2'
