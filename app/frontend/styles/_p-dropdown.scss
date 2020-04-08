@@ -1,0 +1,21 @@
+.p-dropdown {
+  a:hover {
+    text-decoration: none;
+  }
+
+  &-dots {
+    width: 4px;
+    height: 4px;
+    background-color: $grey;
+    display: inline-block;
+    border-radius: 6px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .p-dropdown {
+    .dropdown-menu {
+      top: 40px;
+    }
+  }
+}

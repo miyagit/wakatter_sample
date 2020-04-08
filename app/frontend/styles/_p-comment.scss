@@ -27,6 +27,7 @@
 
       a {
         display: inline;
+        @extend %timeline_hover-link;
       }
     }
 
