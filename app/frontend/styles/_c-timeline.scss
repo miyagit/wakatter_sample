@@ -9,20 +9,21 @@
       }
 
       a {
+        @extend %timeline_hover-link;
         display: inline-block;
         font-size: 16px;
         vertical-align: top;
         margin: 6px 0 0 9px;
         font-family: NotoSansCJKjp;
+      }
 
-        &.squarebox {
-          font-size: 14px;
-          color: $dark-grey;
-          padding: 6px 10px;
-          border-radius: 2px;
-          border: solid 1px $grey;
-          margin: 3px 16px 0 30px;
-        }
+      span {
+        font-size: 14px;
+        color: $dark-grey;
+        padding: 6px 10px;
+        border-radius: 2px;
+        border: solid 1px $grey;
+        margin: 3px 14px 0 28px;
       }
 
       time {
@@ -43,27 +44,49 @@
       font-size: 28px;
       font-family: NotoSansCJKjp;
       color: $blue;
+      cursor: pointer;
       margin-top: 10px;
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        content: '';
+        width: 0;
+        height: 1px;
+        background-color: $hover-light-blue;
+        transition: 0.3s;
+        opacity: 0;
+        width: 100%;
+      }
+      &:hover {
+        color: $hover-light-blue;
+        text-decoration: none;
+        &:after {
+          opacity: 1;
+        }
+      }
     }
 
     &-url {
-      position: relative;
-      height: 38px;
+      font-family: Roboto;
+      font-size: 14px;
+      color: $dark-grey;
       border-radius: 2px;
       border: solid 1px $light-blue;
       background-color: $pale-blue;
+      padding: 10px 0;
+      text-align: center;
       margin: 20px 0;
 
-      a {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        font-family: Roboto;
-        font-size: 14px;
-        color: $dark-grey;
+      &:hover {
+        background-color: #fff;
+        color: $hover-light-blue;
+        transition: all 0.3s ease;
+        text-decoration: underline;
       }
     }
 
@@ -99,6 +122,7 @@
       padding: 20px 0 0 20px;
 
       &-username {
+        @extend %timeline_hover-link;
         font-family: Roboto;
         font-size: 14px;
         display: inline-block;

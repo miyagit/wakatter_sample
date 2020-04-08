@@ -11,6 +11,8 @@
 @import 'l-footer';
 @import 'c-timeline';
 @import 'c-image';
-@import 'p-dots';
 @import 'p-comment';
-@import 'c-dropdown';
+@import 'p-dropdown';
+@import '~bootstrap/scss/bootstrap';
+@import 'override';
+@import 'selector';

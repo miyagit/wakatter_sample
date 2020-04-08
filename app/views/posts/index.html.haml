@@ -1,1 +1,65 @@
+%section.l-main__search
+  = form_tag('/posts/search', method: 'get', class: 'l-main__search__form') do
+    = text_field_tag(:q, '', class: 'l-main__search__form-input', placeholder: '気になるワードで投稿を検索')
+    = submit_tag('検索', name: nil, class: 'l-main__search__form-submit c-button--search')
+.l-main__contents
+  %ul.l-main__contents__orderlist
+    %li.l-main__contents__orderlist-item
+      = link_to '新規投稿順', '#', class: 'active'
+    %li.l-main__contents__orderlist-item
+      = link_to 'わかったが多い順', '#'
+  .l-main__contents__box
+    .l-main__contents__box__timeline
+      .c-timeline__header
+        .c-timeline__header--left
+          = image_tag 'https://storage.googleapis.com/fever/uploads/user/main_image/7/16997881_1267900166650820_5570009584477079786_n.jpg', alt: 'ユーザー画像', class: 'c-image__round'
+          = link_to 'YuyaMiyajima', '#'
+          %span.squarebox プログラミング
+          %time 2020.3.31
+        .c-timeline__header--right
+          .p-dropdown.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
+              %span.p-dropdown-dots
+              %span.p-dropdown-dots
+              %span.p-dropdown-dots
+            %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
+              %li.dropdown-item
+                %a{:href => "https://twitter.com/intent/tweet?text=「f」が投稿されました。https://feverstaging.appspot.com/communities/teamfever/requests/12&hashtags=feverjp&via=fe_verjp", :target => "_blank"}
+                  記事詳細
+              %li.dropdown-item
+                %a{:href => "https://www.facebook.com/sharer/sharer.php?u=https://feverstaging.appspot.com/communities/teamfever/requests/12", :target => "_blank"} 編集
+              %li.dropdown-item
+                %a{:href => "https://www.facebook.com/sharer/sharer.php?u=https://feverstaging.appspot.com/communities/teamfever/requests/12", :target => "_blank"} 削除
 
+      .c-timeline__main
+        = link_to 'ああああああああああああ', '#', class: 'c-timeline__main-title'
+        = link_to 'https://pikawaka.com/rails/enum', '#',  class: 'c-timeline__main-url'
+        %p.c-timeline__main-description この記事では初めにenumの仕組みを図解形式で分かり易く説明し、その後に実際にenum解説専用のアプリを作りながらenumを理解できます。実際にアプリを作ることによってどの場面でenumを使えば良いか理解しながら実装できる様になります。
+        = image_tag 'https://programan.s3.amazonaws.com/uploads/content_image/rails_enum1-2.png', alt: 'enumの画像', class: 'c-image__square'
+      .c-timeline__footer
+        %span.c-timeline__footer-label コメント
+        .c-timeline__footer__comment-area
+          .c-timeline__footer__commentbox
+            = link_to 'YuyaMiyajima', '#', class: 'c-timeline__footer__commentbox-username'
+            %time.c-timeline__footer__commentbox-time 2020.3.31
+            %p.c-timeline__footer__commentbox-description enumの記事がチュートリアル形式だったんで、凄く沢山学べた。めちゃくちゃ長くて大変だったけど、その分得たものは大きかった。
+            = link_to 'MariTanifuji', '#', class: 'c-timeline__footer__commentbox-username'
+            %time.c-timeline__footer__commentbox-time 2020.3.31
+            %p.c-timeline__footer__commentbox-description ものすごくためになりました〜！また書いて欲しいです！
+            .p-comment-wrapper
+              %span.p-comment-label コメントを投稿
+              .p-comment__box
+                %p.p-comment__box-login_announce
+                  %span コメントを投稿するには
+                  = link_to 'ログイン', '#'
+                  %span が必要です。
+                %ul.p-comment__box__list
+                  %li.p-comment__box__list-left
+                    %span 登録がまだの方は
+                  %li.p-comment__box__list-right
+                    = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--comment-registration'
+    .l-main__contents__box__sidebar
+  / .p-button__wakatta
+  /   %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button'}
+  /   %p.c-button--wakatta-button__number 13
+  /   %p.c-button--wakatta-button__text わかった！
