@@ -25,13 +25,13 @@
             %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
               %li.dropdown-item
                 = icon('fas', 'book')
-                = link_to '記事詳細', '#'
+                = link_to '詳細', '#', class: 'details'
               %li.dropdown-item
                 = icon('fas', 'edit')
-                = link_to '編集', '#'
+                = link_to '編集', '#', class: 'edit'
               %li.dropdown-item
                 = icon('fas', 'trash')
-                = link_to '削除', '#'
+                = link_to '削除', '#', class: 'delete'
       .c-timeline__main
         = link_to 'ああああああああああああ', '#', class: 'c-timeline__main-title'
         = link_to 'https://pikawaka.com/rails/enum', '#',  class: 'c-timeline__main-url'
