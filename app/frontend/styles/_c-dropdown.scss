@@ -1,4 +1,4 @@
-.p-dropdown {
+.c-dropdown {
   a:hover {
     text-decoration: none;
   }
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .p-dropdown {
+  .c-dropdown {
     .dropdown-menu {
       top: 40px;
     }
