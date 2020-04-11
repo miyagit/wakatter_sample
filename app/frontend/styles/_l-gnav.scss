@@ -7,7 +7,7 @@
     font-family: HiraginoSans-W3;
     @include flex(between, center);
 
-    li:last-child {
+    li:not(:first-child) {
       padding-left: 30px;
     }
   }
