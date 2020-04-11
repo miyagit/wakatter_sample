@@ -1,0 +1,14 @@
+.p-form
+  %h2.p-form-title わかったを投稿する
+  = form_with model: @post, url: posts_path(@post), mehotd: :post, class: 'p-form__input' do |f|
+    .p-form__input-field
+      = f.label :title, class: 'require'
+      = f.text_field :title, autofocus: true
+    .p-form__input-field
+      = f.label :url, class: 'require'
+      = f.text_field :url, autofocus: true
+    .p-form__input-field
+      = f.label :description, class: 'require_description'
+      = f.text_area :description, autofocus: true
+    .p-form__input-submit
+      = f.submit "投稿する", class: 'p-button c-button--submit'

@@ -23,6 +23,8 @@
                 = link_to 'マイページ', '#'
               %li.l-gnav__link
                 = link_to 'ログアウト', destroy_user_session_path, method: :delete
+              %li.l-gnav__button
+                = link_to 'わかったを投稿する', new_post_path, class: 'p-button c-button--header'
             - else
               %li.l-gnav__link
                 = link_to 'ログイン', new_user_session_path

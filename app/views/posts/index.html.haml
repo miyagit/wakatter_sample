@@ -9,106 +9,57 @@
     %li.l-main__contents__orderlist-item
       = link_to 'わかったが多い順', '#'
   .l-main__contents__box
-    .l-main__contents__box__timeline
-      .p-timeline__header
-        .p-timeline__header--left
-          = image_tag 'https://storage.googleapis.com/fever/uploads/user/main_image/7/16997881_1267900166650820_5570009584477079786_n.jpg', alt: 'ユーザー画像', class: 'c-image__round'
-          = link_to 'YuyaMiyajima', '#'
-          %span.squarebox プログラミング
-          %time 2020.3.31
-        .p-timeline__header--right
-          .c-dropdown.dropdown
-            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
-              %span.c-dropdown-dots
-              %span.c-dropdown-dots
-              %span.c-dropdown-dots
-            %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
-              %li.dropdown-item
-                = icon('fas', 'book')
-                = link_to '詳細', '#', class: 'details'
-              %li.dropdown-item
-                = icon('fas', 'edit')
-                = link_to '編集', '#', class: 'edit'
-              %li.dropdown-item
-                = icon('fas', 'trash')
-                = link_to '削除', '#', class: 'delete'
-      .p-timeline__main
-        = link_to 'enumチュートリアル', '#', class: 'p-timeline__main-title'
-        = link_to 'https://pikawaka.com/rails/enum', '#',  class: 'p-timeline__main-url'
-        %p.p-timeline__main-description この記事では初めにenumの仕組みを図解形式で分かり易く説明し、その後に実際にenum解説専用のアプリを作りながらenumを理解できます。実際にアプリを作ることによってどの場面でenumを使えば良いか理解しながら実装できる様になります。
-        = image_tag 'https://programan.s3.amazonaws.com/uploads/content_image/rails_enum1-2.png', alt: 'enumの画像', class: 'c-image__square'
-      .p-timeline__footer
-        %span.p-timeline__footer-label コメント
-        .p-timeline__footer__comment-area
-          .p-timeline__footer__commentbox
-            = link_to 'YuyaMiyajima', '#', class: 'p-timeline__footer__commentbox-username'
-            %time.p-timeline__footer__commentbox-time 2020.3.31
-            %p.p-timeline__footer__commentbox-description enumの記事がチュートリアル形式だったんで、凄く沢山学べた。めちゃくちゃ長くて大変だったけど、その分得たものは大きかった。
-            = link_to 'MariTanifuji', '#', class: 'p-timeline__footer__commentbox-username'
-            %time.p-timeline__footer__commentbox-time 2020.3.31
-            %p.p-timeline__footer__commentbox-description ものすごくためになりました〜！また書いて欲しいです！
-            .c-comment-wrapper
-              %span.c-comment-label コメントを投稿
-              .c-comment__box
-                %p.c-comment__box-login_announce
-                  %span コメントを投稿するには
-                  = link_to 'ログイン', '#'
-                  %span が必要です。
-                %ul.c-comment__box__list
-                  %li.c-comment__box__list-left
-                    %span 登録がまだの方は
-                  %li.c-comment__box__list-right
-                    = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--comment-registration'
-    .l-main__contents__box__timeline
-      .p-timeline__header
-        .p-timeline__header--left
-          = image_tag 'https://storage.googleapis.com/fever/uploads/user/main_image/7/16997881_1267900166650820_5570009584477079786_n.jpg', alt: 'ユーザー画像', class: 'c-image__round'
-          = link_to 'YuyaMiyajima', '#'
-          %span.squarebox プログラミング
-          %time 2020.3.31
-        .p-timeline__header--right
-          .c-dropdown.dropdown
-            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
-              %span.c-dropdown-dots
-              %span.c-dropdown-dots
-              %span.c-dropdown-dots
-            %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
-              %li.dropdown-item
-                = icon('fas', 'book')
-                = link_to '詳細', '#', class: 'details'
-              %li.dropdown-item
-                = icon('fas', 'edit')
-                = link_to '編集', '#', class: 'edit'
-              %li.dropdown-item
-                = icon('fas', 'trash')
-                = link_to '削除', '#', class: 'delete'
-      .p-timeline__main
-        = link_to 'enumチュートリアル', '#', class: 'p-timeline__main-title'
-        = link_to 'https://pikawaka.com/rails/enum', '#',  class: 'p-timeline__main-url'
-        %p.p-timeline__main-description この記事では初めにenumの仕組みを図解形式で分かり易く説明し、その後に実際にenum解説専用のアプリを作りながらenumを理解できます。実際にアプリを作ることによってどの場面でenumを使えば良いか理解しながら実装できる様になります。
-        = image_tag 'https://programan.s3.amazonaws.com/uploads/content_image/rails_enum1-2.png', alt: 'enumの画像', class: 'c-image__square'
-      .p-timeline__footer
-        %span.p-timeline__footer-label コメント
-        .p-timeline__footer__comment-area
-          .p-timeline__footer__commentbox
-            = link_to 'YuyaMiyajima', '#', class: 'p-timeline__footer__commentbox-username'
-            %time.p-timeline__footer__commentbox-time 2020.3.31
-            %p.p-timeline__footer__commentbox-description enumの記事がチュートリアル形式だったんで、凄く沢山学べた。めちゃくちゃ長くて大変だったけど、その分得たものは大きかった。
-            = link_to 'MariTanifuji', '#', class: 'p-timeline__footer__commentbox-username'
-            %time.p-timeline__footer__commentbox-time 2020.3.31
-            %p.p-timeline__footer__commentbox-description ものすごくためになりました〜！また書いて欲しいです！
-            .c-comment-wrapper
-              %span.c-comment-label コメントを投稿
-              .c-comment__box
-                %p.c-comment__box-login_announce
-                  %span コメントを投稿するには
-                  = link_to 'ログイン', '#'
-                  %span が必要です。
-                %ul.c-comment__box__list
-                  %li.c-comment__box__list-left
-                    %span 登録がまだの方は
-                  %li.c-comment__box__list-right
-                    = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--comment-registration'
+    - @posts.each do |post|
+      .l-main__contents__box__timeline
+        .p-timeline__header
+          .p-timeline__header--left
+            = image_tag 'https://storage.googleapis.com/fever/uploads/user/main_image/7/16997881_1267900166650820_5570009584477079786_n.jpg', alt: 'ユーザー画像', class: 'c-image__round'
+            = link_to 'YuyaMiyajima', '#'
+            %span.squarebox プログラミング
+            %time= post.created_at
+          .p-timeline__header--right
+            .c-dropdown.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
+                %span.c-dropdown-dots
+                %span.c-dropdown-dots
+                %span.c-dropdown-dots
+              %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
+                %li.dropdown-item
+                  = icon('fas', 'book')
+                  = link_to '詳細', '#', class: 'details'
+                %li.dropdown-item
+                  = icon('fas', 'edit')
+                  = link_to '編集', '#', class: 'edit'
+                %li.dropdown-item
+                  = icon('fas', 'trash')
+                  = link_to '削除', '#', class: 'delete'
+        .p-timeline__main
+          = link_to "#{post.title}", '#', class: 'p-timeline__main-title'
+          = link_to "#{post.url}", "#{post.url}", target: :_blank, class: 'p-timeline__main-url'
+          %p.p-timeline__main-description= post.description
+          = image_tag 'https://programan.s3.amazonaws.com/uploads/content_image/rails_enum1-2.png', alt: 'enumの画像', class: 'c-image__square'
+        .p-timeline__footer
+          %span.p-timeline__footer-label コメント
+          .p-timeline__footer__comment-area
+            .p-timeline__footer__commentbox
+              = link_to 'YuyaMiyajima', '#', class: 'p-timeline__footer__commentbox-username'
+              %time.p-timeline__footer__commentbox-time 2020.3.31
+              %p.p-timeline__footer__commentbox-description enumの記事がチュートリアル形式だったんで、凄く沢山学べた。めちゃくちゃ長くて大変だったけど、その分得たものは大きかった。
+              = link_to 'MariTanifuji', '#', class: 'p-timeline__footer__commentbox-username'
+              %time.p-timeline__footer__commentbox-time 2020.3.31
+              %p.p-timeline__footer__commentbox-description ものすごくためになりました〜！また書いて欲しいです！
+              .c-comment-wrapper
+                %span.c-comment-label コメントを投稿
+                .c-comment__box
+                  %p.c-comment__box-login_announce
+                    %span コメントを投稿するには
+                    = link_to 'ログイン', '#'
+                    %span が必要です。
+                  %ul.c-comment__box__list
+                    %li.c-comment__box__list-left
+                      %span 登録がまだの方は
+                    %li.c-comment__box__list-right
+                      = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--comment-registration'
     .l-main__contents__box__sidebar
   / .p-button__wakatta
   /   %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button'}
