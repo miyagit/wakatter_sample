@@ -16,7 +16,7 @@
             = image_tag 'https://storage.googleapis.com/fever/uploads/user/main_image/7/16997881_1267900166650820_5570009584477079786_n.jpg', alt: 'ユーザー画像', class: 'c-image__round'
             = link_to 'YuyaMiyajima', '#'
             %span.squarebox プログラミング
-            %time= post.created_at.strftime("%Y.%-m.%d")
+            %time= post.created_at.to_s
           .p-timeline__header--right
             .c-dropdown.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
