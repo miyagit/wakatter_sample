@@ -8,6 +8,10 @@
       = f.label :url, class: 'require'
       = f.text_field :url, autofocus: true
     .p-form__input-field
+      = f.label :category, class: 'require'
+      .p-form__input-field-wrapper
+        = f.select :category_id, Category.pluck(:name, :id), prompt: "分野を選択する"
+    .p-form__input-field
       = f.label :description, class: 'require_description'
       = f.text_area :description, autofocus: true
     .p-form__input-submit

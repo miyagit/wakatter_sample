@@ -14,6 +14,21 @@
     &-field {
       margin-bottom: 30px;
 
+      &-wrapper {
+        position: relative;
+        &::before {
+          position: absolute;
+          content: '';
+          display: block;
+          border-top: 4px solid $dark-grey;
+          border-right: 4px solid transparent;
+          border-bottom: 4px solid transparent;
+          border-left: 4px solid transparent;
+          top: 18px;
+          left: 135px;
+        }
+      }
+
       label {
         display: inline-block;
         font-weight: 500;
@@ -71,6 +86,29 @@
         font-size: 14px;
         color: $dark-grey;
         padding-left: 15px;
+      }
+
+      select {
+        width: 160px;
+        display: block;
+        height: 42px;
+        border-radius: 2px;
+        border: solid 1px #c0c6d6;
+        background-color: #ffffff;
+        font-size: 14px;
+        color: $dark-grey;
+        padding-left: 15px;
+        font-family: NotoSansCJKjp;
+        appearance: none;
+
+        option {
+          background-color: #fff;
+          color: #333;
+        }
+
+        option:first-child{
+          background:green;
+        }
       }
 
       textarea {
