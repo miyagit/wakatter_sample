@@ -26,7 +26,7 @@
               %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
                 %li.dropdown-item
                   = icon('fas', 'book')
-                  = link_to '詳細', '#', class: 'details'
+                  = link_to '詳細', post_path(post), class: 'details'
                 %li.dropdown-item
                   = icon('fas', 'edit')
                   = link_to '編集', edit_post_path(post), class: 'edit'
