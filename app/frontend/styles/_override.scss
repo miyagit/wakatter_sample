@@ -8,10 +8,6 @@
     background-color: $dark-grey;
   }
 
-  &:active {
-    pointer-events: none;
-  }
-
   &-menu {
     left: -84px !important;
     top: 25px !important;
