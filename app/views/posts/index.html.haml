@@ -32,7 +32,7 @@
                   = link_to '編集', edit_post_path(post), class: 'edit'
                 %li.dropdown-item
                   = icon('fas', 'trash')
-                  = link_to '削除', '#', class: 'delete'
+                  = link_to "削除", post_path(post), method: :delete, class: 'delete', data: { confirm: "本当に削除しますか？" }
         .p-timeline__main
           = link_to "#{post.title}", '#', class: 'p-timeline__main-title'
           = link_to "#{post.url}", "#{post.url}", target: :_blank, class: 'p-timeline__main-url'
