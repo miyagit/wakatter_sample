@@ -54,6 +54,10 @@
     &:hover, &:focus {
       background-color: unset;
     }
+
+    &.active, &:active {
+      color: unset;
+    }
   }
 
   &-toggle {
