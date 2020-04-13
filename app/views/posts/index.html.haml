@@ -42,24 +42,28 @@
           %span.p-timeline__footer-label コメント
           .p-timeline__footer__comment-area
             .p-timeline__footer__commentbox
-              = link_to 'YuyaMiyajima', '#', class: 'p-timeline__footer__commentbox-username'
-              %time.p-timeline__footer__commentbox-time 2020.3.31
-              %p.p-timeline__footer__commentbox-description enumの記事がチュートリアル形式だったんで、凄く沢山学べた。めちゃくちゃ長くて大変だったけど、その分得たものは大きかった。
-              = link_to 'MariTanifuji', '#', class: 'p-timeline__footer__commentbox-username'
-              %time.p-timeline__footer__commentbox-time 2020.3.31
-              %p.p-timeline__footer__commentbox-description ものすごくためになりました〜！また書いて欲しいです！
+              - post.post_comments.each do |comment|
+                .p-timeline__footer__commentbox-unit
+                  = link_to comment.user.username, '#', class: 'p-timeline__footer__commentbox-username'
+                  %time.p-timeline__footer__commentbox-time= comment.created_at.to_s
+                  %p.p-timeline__footer__commentbox-description= comment.body
               .c-comment-wrapper
                 %span.c-comment-label コメントを投稿
-                .c-comment__box
-                  %p.c-comment__box-login_announce
-                    %span コメントを投稿するには
-                    = link_to 'ログイン', '#'
-                    %span が必要です。
-                  %ul.c-comment__box__list
-                    %li.c-comment__box__list-left
-                      %span 登録がまだの方は
-                    %li.c-comment__box__list-right
-                      = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--comment-registration'
+                - if user_signed_in?
+                  = form_with model: [post, post.post_comments.new], local: true, mehotd: :post do |f|
+                    = f.text_area :body
+                    = f.submit '投稿する', class: 'p-button c-button--comment-post'
+                - else
+                  .c-comment__box
+                    %p.c-comment__box-login_announce
+                      %span コメントを投稿するには
+                      = link_to 'ログイン', '#'
+                      %span が必要です。
+                    %ul.c-comment__box__list
+                      %li.c-comment__box__list-left
+                        %span 登録がまだの方は
+                      %li.c-comment__box__list-right
+                        = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--comment-registration'
     .l-main__contents__box__sidebar
   / .p-button__wakatta
   /   %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button'}

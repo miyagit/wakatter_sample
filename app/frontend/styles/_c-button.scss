@@ -60,4 +60,12 @@
     padding: 7px 13px;
     @extend .c-button--square-yellow;
   }
+
+  &--comment-post {
+    font-family: NotoSansCJKjp;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 7px 14px;
+    @extend .c-button--square-yellow;
+  }
 }
