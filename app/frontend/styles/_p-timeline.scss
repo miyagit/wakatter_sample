@@ -96,6 +96,9 @@
       font-family: NotoSansCJKjp;
       font-size: 16px;
       color: $dark-grey;
+      p {
+        margin-bottom: 1em!important;
+      }
     }
 
     img {
@@ -150,6 +153,9 @@
         margin-top: 13px;
         font-size: 14px;
         font-family: NotoSansCJKjp;
+        p {
+          margin-bottom: 1em!important;
+        }
       }
     }
   }

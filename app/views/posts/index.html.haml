@@ -36,7 +36,8 @@
         .p-timeline__main
           = link_to "#{post.title}", '#', class: 'p-timeline__main-title'
           = link_to "#{post.url}", "#{post.url}", target: :_blank, class: 'p-timeline__main-url'
-          %p.p-timeline__main-description= simple_format(post.description)
+          .p-timeline__main-description
+            = simple_format(post.description)
           = image_tag 'https://programan.s3.amazonaws.com/uploads/content_image/rails_enum1-2.png', alt: 'enumの画像', class: 'c-image__square'
         .p-timeline__footer
           %span.p-timeline__footer-label コメント
@@ -46,7 +47,8 @@
                 .p-timeline__footer__commentbox-unit
                   = link_to comment.user.username, '#', class: 'p-timeline__footer__commentbox-username'
                   %time.p-timeline__footer__commentbox-time= comment.created_at.to_s
-                  %p.p-timeline__footer__commentbox-description= comment.body
+                  .p-timeline__footer__commentbox-description
+                    = simple_format(comment.body)
               .c-comment-wrapper
                 %span.c-comment-label コメントを投稿
                 - if user_signed_in?
