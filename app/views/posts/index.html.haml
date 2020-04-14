@@ -36,7 +36,7 @@
         .p-timeline__main
           = link_to "#{post.title}", '#', class: 'p-timeline__main-title'
           = link_to "#{post.url}", "#{post.url}", target: :_blank, class: 'p-timeline__main-url'
-          %p.p-timeline__main-description= post.description
+          %p.p-timeline__main-description= simple_format(post.description)
           = image_tag 'https://programan.s3.amazonaws.com/uploads/content_image/rails_enum1-2.png', alt: 'enumの画像', class: 'c-image__square'
         .p-timeline__footer
           %span.p-timeline__footer-label コメント
