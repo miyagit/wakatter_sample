@@ -53,7 +53,7 @@
                 %span.c-comment-label コメントを投稿
                 - if user_signed_in?
                   = form_with model: [post, post.post_comments.new], local: true, mehotd: :post do |f|
-                    = f.text_area :body
+                    = f.text_area :body, class: 'js-commentarea_resize'
                     = f.submit '投稿する', class: 'p-button c-button--comment-post'
                 - else
                   .c-comment__box
@@ -71,3 +71,5 @@
   /   %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button'}
   /   %p.c-button--wakatta-button__number 13
   /   %p.c-button--wakatta-button__text わかった！
+
+%script new AutoResizer($('.js-commentarea_resize'));
