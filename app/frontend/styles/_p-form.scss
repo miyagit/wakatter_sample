@@ -126,8 +126,47 @@
 
     &-submit {
       text-align: center;
-      padding-top: 20px;
+      padding-top: 50px;
       font-weight: bold;
+      margin-bottom: 100px;
+    }
+  }
+  &__file-field {
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-family: NotoSansCJKjp;
+      color: $dark-grey;
+
+      &.option_image {
+        &::after {
+          content: 'を登録(任意)';
+          color: $dark-grey;
+          font-size: 12px;
+          font-weight: 500;
+          margin-left: 2px;
+        }
+      }
+    }
+
+    input {
+      display: none;
+    }
+
+    span {
+      font-family: NotoSansCJKjp;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    img {
+      display: none;
+      margin-top: 20px;
+      width: 400px;
+      height: 250px;
     }
   }
 }
