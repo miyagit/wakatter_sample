@@ -1,6 +1,6 @@
 .p-form
   %h2.p-form-title わかったを投稿する
-  = form_with model: @post, url: posts_path(@post), mehotd: :post, class: 'p-form__input' do |f|
+  = form_with model: @post, url: posts_path(@post), mehotd: :post, local: true, class: 'p-form__input' do |f|
     .p-form__input-field
       = f.label :title, class: 'require'
       = f.text_field :title, autofocus: true
@@ -18,7 +18,7 @@
       = f.label :image, class: 'option_image'
       = f.file_field :image, class: 'js-file-field'
       %span.c-button--image.js-image_button 画像を選択
-      %img.js-image_preview
+      %img.js-image_preview.c-image__middle__square
     .p-form__input-submit
       = f.submit "投稿する", class: 'p-button c-button--submit'
 
