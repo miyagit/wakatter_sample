@@ -29,7 +29,7 @@
       = link_to "#{@post.title}", '#', class: 'p-timeline__main-title'
       = link_to "#{@post.url}", "#{@post.url}", target: :_blank, class: 'p-timeline__main-url'
       %p.p-timeline__main-description= @post.description
-      = image_tag 'https://programan.s3.amazonaws.com/uploads/content_image/rails_enum1-2.png', alt: 'enumの画像', class: 'c-image__square'
+      = image_tag @post.image.url, alt: @post.image.identifier + 'の画像', class: 'c-image__square' if @post.image.present?
     .p-timeline__footer
       %span.p-timeline__footer-label コメント
       .p-timeline__footer__comment-area

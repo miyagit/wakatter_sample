@@ -42,6 +42,7 @@
     font-size: 14px;
     text-align: center;
     font-family: NotoSansCJKjp;
+    cursor: pointer;
   }
   // 検索ボタン
   &--search {
@@ -54,6 +55,13 @@
   // 並び替えボタン
   &--order {
     @extend .c-button--square-light-blue;
+  }
+
+  // 画像投稿ボタン
+  &--image {
+    display: inline-block;
+    padding: 8px 12px;
+    @extend .c-button--square-yellow;
   }
   // コメントを投稿する部分での会員登録ボタン
   &--comment-registration {
