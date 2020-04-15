@@ -13,8 +13,11 @@
       .l-main__contents__box__timeline
         .p-timeline__header
           .p-timeline__header--left
-            = image_tag 'https://storage.googleapis.com/fever/uploads/user/main_image/7/16997881_1267900166650820_5570009584477079786_n.jpg', alt: 'ユーザー画像', class: 'c-image__round'
-            = link_to 'YuyaMiyajima', '#'
+            - if post.user.avatar.present?
+              = image_tag post.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
+            - else
+              = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
+            = link_to post.user.username, '#'
             %span.squarebox= post.category.name
             %time= post.created_at.to_s
           .p-timeline__header--right
@@ -45,6 +48,10 @@
             .p-timeline__footer__commentbox
               - post.post_comments.each do |comment|
                 .p-timeline__footer__commentbox-unit
+                  - if post.user.avatar.present?
+                    = image_tag post.user.avatar_url, alt: 'ユーザー画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
+                  - else
+                    = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
                   = link_to comment.user.username, '#', class: 'p-timeline__footer__commentbox-username'
                   %time.p-timeline__footer__commentbox-time= comment.created_at.to_s
                   .p-timeline__footer__commentbox-description

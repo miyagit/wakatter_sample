@@ -14,8 +14,15 @@
     .p-form__input-field
       = f.label :password_confirmation, class: 'require'
       = f.password_field :password_confirmation, autocomplete: "new-password"
+    .p-form__file-field
+      = f.label :avatar, class: 'option_image'
+      = f.file_field :avatar, class: 'js-file-field'
+      %span.c-button--image.js-image_button 画像を選択
+      %img.js-image_preview.c-image__big__round
     .p-form__input-field
       = f.label :job, class: 'option'
       = f.text_field :job
     .p-form__input-submit
       = f.submit "この内容で新規登録", class: 'p-button c-button--submit'
+
+%script new ImageUploader ($('.js-image_button'));

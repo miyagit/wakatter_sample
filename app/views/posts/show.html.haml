@@ -8,7 +8,10 @@
   .l-main__contents__box__timeline
     .p-timeline__header
       .p-timeline__header--left
-        = image_tag 'https://storage.googleapis.com/fever/uploads/user/main_image/7/16997881_1267900166650820_5570009584477079786_n.jpg', alt: 'ユーザー画像', class: 'c-image__round'
+        - if @post.user.avatar.present?
+          = image_tag @post.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
+        - else
+          = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
         = link_to 'YuyaMiyajima', '#'
         %span.squarebox= @post.category.name
         %time= @post.created_at.to_s
@@ -34,21 +37,32 @@
       %span.p-timeline__footer-label コメント
       .p-timeline__footer__comment-area
         .p-timeline__footer__commentbox
-          = link_to 'YuyaMiyajima', '#', class: 'p-timeline__footer__commentbox-username'
-          %time.p-timeline__footer__commentbox-time 2020.3.31
-          %p.p-timeline__footer__commentbox-description enumの記事がチュートリアル形式だったんで、凄く沢山学べた。めちゃくちゃ長くて大変だったけど、その分得たものは大きかった。
-          = link_to 'MariTanifuji', '#', class: 'p-timeline__footer__commentbox-username'
-          %time.p-timeline__footer__commentbox-time 2020.3.31
-          %p.p-timeline__footer__commentbox-description ものすごくためになりました〜！また書いて欲しいです！
+          - @post.post_comments.each do |comment|
+            .p-timeline__footer__commentbox-unit
+              - if @post.user.avatar.present?
+                = image_tag @post.user.avatar_url, alt: 'ユーザー画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
+              - else
+                = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
+              = link_to comment.user.username, '#', class: 'p-timeline__footer__commentbox-username'
+              %time.p-timeline__footer__commentbox-time= comment.created_at.to_s
+              .p-timeline__footer__commentbox-description
+                = simple_format(comment.body)
           .c-comment-wrapper
             %span.c-comment-label コメントを投稿
-            .c-comment__box
-              %p.c-comment__box-login_announce
-                %span コメントを投稿するには
-                = link_to 'ログイン', '#'
-                %span が必要です。
-              %ul.c-comment__box__list
-                %li.c-comment__box__list-left
-                  %span 登録がまだの方は
-                %li.c-comment__box__list-right
-                  = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--comment-registration'
+            - if user_signed_in?
+              = form_with model: [@post, @post.post_comments.new], local: true, mehotd: :post do |f|
+                = f.text_area :body, class: 'js-commentarea_resize'
+                = f.submit '投稿する', class: 'p-button c-button--comment-post'
+            - else
+              .c-comment__box
+                %p.c-comment__box-login_announce
+                  %span コメントを投稿するには
+                  = link_to 'ログイン', '#'
+                  %span が必要です。
+                %ul.c-comment__box__list
+                  %li.c-comment__box__list-left
+                    %span 登録がまだの方は
+                  %li.c-comment__box__list-right
+                    = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--comment-registration'
+
+%script new AutoResizer($('.js-commentarea_resize'));
