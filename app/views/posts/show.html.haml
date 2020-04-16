@@ -12,7 +12,7 @@
           = image_tag @post.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
         - else
           = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
-        = link_to 'YuyaMiyajima', '#'
+        = link_to @post.user.username, '#'
         %span.squarebox= @post.category.name
         %time= @post.created_at.to_s
       - if user_signed_in? && @post.user == current_user
