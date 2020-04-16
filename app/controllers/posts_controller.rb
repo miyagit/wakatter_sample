@@ -19,15 +19,21 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    authenticate_user!
+    redirect_to root_path unless current_user == @post.user
   end
 
   def update
+    authenticate_user!
+    redirect_to root_path unless current_user == @post.user
     post = Post.find(params[:id])
     post.update(post_params)
     redirect_to posts_path
   end
 
   def destroy
+    authenticate_user!
+    redirect_to root_path unless current_user == @post.user
     post = Post.find(params[:id])
     post.destroy
     redirect_to posts_path

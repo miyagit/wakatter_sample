@@ -2,7 +2,7 @@ class Posts::CommentsController < PostsController
 
   def create
     comment = PostComment.create(post_params)
-    redirect_to posts_path
+    redirect_to post_path(params[:post_id])
   end
 
   private

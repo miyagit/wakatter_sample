@@ -30,12 +30,13 @@
                 %li.dropdown-item
                   = icon('fas', 'book')
                   = link_to '詳細', post_path(post), class: 'details'
-                %li.dropdown-item
-                  = icon('fas', 'edit')
-                  = link_to '編集', edit_post_path(post), class: 'edit'
-                %li.dropdown-item
-                  = icon('fas', 'trash')
-                  = link_to "削除", post_path(post), method: :delete, class: 'delete', data: { confirm: "本当に削除しますか？" }
+                - if user_signed_in? && post.user == current_user
+                  %li.dropdown-item
+                    = icon('fas', 'edit')
+                    = link_to '編集', edit_post_path(post), class: 'edit'
+                  %li.dropdown-item
+                    = icon('fas', 'trash')
+                    = link_to "削除", post_path(post), method: :delete, class: 'delete', data: { confirm: "本当に削除しますか？" }
         .p-timeline__main
           = link_to "#{post.title}", '#', class: 'p-timeline__main-title'
           = link_to "#{post.url}", "#{post.url}", target: :_blank, class: 'p-timeline__main-url'
@@ -48,8 +49,8 @@
             .p-timeline__footer__commentbox
               - post.post_comments.each do |comment|
                 .p-timeline__footer__commentbox-unit
-                  - if post.user.avatar.present?
-                    = image_tag post.user.avatar_url, alt: 'ユーザー画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
+                  - if comment.user.avatar.present?
+                    = image_tag comment.user.avatar_url, alt: 'ユーザー画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
                   - else
                     = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
                   = link_to comment.user.username, '#', class: 'p-timeline__footer__commentbox-username'
