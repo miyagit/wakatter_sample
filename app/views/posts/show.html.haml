@@ -15,23 +15,25 @@
         = link_to 'YuyaMiyajima', '#'
         %span.squarebox= @post.category.name
         %time= @post.created_at.to_s
-      .p-timeline__header--right
-        .c-dropdown.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
-            %span.c-dropdown-dots
-            %span.c-dropdown-dots
-            %span.c-dropdown-dots
-          %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
-            %li.dropdown-item
-              = icon('fas', 'edit')
-              = link_to '編集', edit_post_path(@post), class: 'edit'
-            %li.dropdown-item
-              = icon('fas', 'trash')
-              = link_to '削除', '#', class: 'delete'
+      - if user_signed_in? && @post.user == current_user
+        .p-timeline__header--right
+          .c-dropdown.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
+              %span.c-dropdown-dots
+              %span.c-dropdown-dots
+              %span.c-dropdown-dots
+              %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
+                %li.dropdown-item
+                  = icon('fas', 'edit')
+                  = link_to '編集', edit_post_path(@post), class: 'edit'
+                %li.dropdown-item
+                  = icon('fas', 'trash')
+                  = link_to '削除', '#', class: 'delete'
     .p-timeline__main
       = link_to "#{@post.title}", '#', class: 'p-timeline__main-title'
       = link_to "#{@post.url}", "#{@post.url}", target: :_blank, class: 'p-timeline__main-url'
-      %p.p-timeline__main-description= @post.description
+      .p-timeline__main-description
+        = simple_format(@post.description)
       = image_tag @post.image.url, alt: @post.image.identifier + 'の画像', class: 'c-image__square' if @post.image.present?
     .p-timeline__footer
       %span.p-timeline__footer-label コメント
@@ -39,8 +41,8 @@
         .p-timeline__footer__commentbox
           - @post.post_comments.each do |comment|
             .p-timeline__footer__commentbox-unit
-              - if @post.user.avatar.present?
-                = image_tag @post.user.avatar_url, alt: 'ユーザー画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
+              - if comment.user.avatar.present?
+                = image_tag comment.user.avatar_url, alt: 'ユーザー画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
               - else
                 = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
               = link_to comment.user.username, '#', class: 'p-timeline__footer__commentbox-username'
