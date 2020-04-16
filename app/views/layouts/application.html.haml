@@ -21,7 +21,7 @@
           %ul.l-gnav__list
             - if user_signed_in?
               %li.l-gnav__link
-                = link_to 'マイページ', '#'
+                = link_to 'マイページ', edit_user_registration_path
               %li.l-gnav__link
                 = link_to 'ログアウト', destroy_user_session_path, method: :delete
               %li.l-gnav__button
