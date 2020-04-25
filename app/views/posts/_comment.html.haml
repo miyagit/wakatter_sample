@@ -1,0 +1,9 @@
+.p-timeline__footer__commentbox-unit
+  - if comment.user.avatar.present?
+    = image_tag comment.user.avatar_url, alt: 'ユーザー画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
+  - else
+    = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
+  = link_to comment.user.username, '#', class: 'p-timeline__footer__commentbox-username'
+  %time.p-timeline__footer__commentbox-time= comment.created_at.to_s
+  .p-timeline__footer__commentbox-description
+    = simple_format(comment.body)
