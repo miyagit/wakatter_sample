@@ -8,11 +8,13 @@
   .l-main__contents__box__timeline
     .p-timeline__header
       .p-timeline__header--left
+        .p-button__wakatta{class: "js-like-#{@post.id}"}
+          = render 'like', post: @post
         - if @post.user.avatar.present?
           = image_tag @post.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
         - else
           = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
-        = link_to @post.user.username, '#'
+        = link_to @post.user.username, '#', class: 'username'
         %span.squarebox= @post.category.name
         %time= @post.created_at.to_s
       - if user_signed_in? && @post.user == current_user

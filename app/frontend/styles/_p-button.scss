@@ -1,0 +1,35 @@
+.p-button {
+
+  // 記事詳細のわかったボタン
+  &__wakatta {
+    position: absolute;
+    left: -110px;
+
+    // 1150px以下でボタンを下部に移動
+    @media screen and (max-width: 1150px) {
+      position: fixed;
+      left: auto;
+      right: 20px;
+      bottom: 20px;
+      text-align: center;
+      z-index: 9999;
+      transition: .2s;
+      &.is-hide {
+        transform: translateY(130%);
+      }
+    }
+    &-number {
+      @media screen and (max-width: 1150px) {
+        @include flex(0, center);
+        margin-top: 6px;
+        padding: 2px 0 3px 4px;
+        border-radius: 2px;
+        border: 2px solid #c9ced9;
+        background-color: $white;
+        &.is-active {
+          border-color: $light-yellow;
+        }
+      }
+    }
+  }
+}
