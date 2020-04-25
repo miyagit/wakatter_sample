@@ -5,4 +5,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, ImageUploader
 
   has_many :posts
+  has_many :post_likes
+  has_many :post_comments
 end

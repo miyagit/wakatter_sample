@@ -3,11 +3,13 @@
     @include flex(between, center);
 
     &--left {
+      position: relative;
+
       img {
         display: inline-block;
       }
 
-      a {
+      .username {
         @extend %timeline_hover-link;
         display: inline-block;
         font-size: 16px;
@@ -16,7 +18,7 @@
         font-family: NotoSansCJKjp;
       }
 
-      span {
+      .squarebox {
         font-size: 14px;
         color: $dark-grey;
         padding: 6px 10px;

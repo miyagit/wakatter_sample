@@ -76,4 +76,103 @@
     padding: 7px 14px;
     @extend .c-button--square-yellow;
   }
+
+  &--wakatta-number {
+    @extend .c-button;
+    @include flex(0, center);
+    border-radius: 2px;
+    box-shadow: 0 0 15px $box-shadow;
+    background-color: $light-yellow;
+    padding: 2px 8px 2px 34px;
+    font-size: 12px;
+    @include smartphone {
+      padding: 2px 6px 2px 30px;
+      font-size: 14px;
+    }
+    // 数字の部分
+    span {
+      font-size: 18px;
+      font-weight: bold;
+      @include smartphone {
+        font-size: 18px;
+      }
+    }
+  }
+
+
+  &--wakatta-button {
+    width: 74px;
+    height: 74px;
+    border: 2px solid #c9ced9;
+    border-radius: 999px;
+    background: $white url('../images/bulb_off.svg') no-repeat center / 26px auto;
+    transition: none !important;
+    &:hover {
+      opacity: .7;
+      border-color: #ffe79a;
+    }
+    @include tablet {
+      &:hover {
+        opacity: 1;
+      }
+    }
+    @include smartphone {
+      width: 60px;
+      height: 60px;
+      background-color: $white;
+    }
+    // クリックされたら
+    &.is-active {
+      border: 2px solid #FFE79B;
+      box-shadow: 0 0 15px 0 $light-yellow;
+      background: $white url('../images/bulb_on.svg') no-repeat border-box center 17px/26px;
+      transition: none;
+      @media screen and (max-width: 1150px) {
+        border-color: $light-yellow;
+      }
+      @include smartphone {
+        background: $white url('../images/bulb_on.svg') no-repeat border-box center 7px/26px;
+      }
+    }
+    // わかった数
+    &__number {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1em;
+      color: $dark-grey;
+      text-decoration: none;
+
+      &.is-active {
+        color: $light-yellow;
+      }
+      @media screen and (max-width: 1150px) {
+        margin: 0;
+        font-size: 18px;
+      }
+      @include smartphone {
+        font-size: 14px;
+      }
+    }
+    // わかった！の文字
+    &__text {
+      margin: 5px 0 0 8px;
+      font-size: 12px;
+      text-align: center;
+      line-height: 1em;
+      color: $dark-grey;
+      text-decoration: none;
+
+      &.is-active {
+        color: $light-yellow;
+      }
+      @media screen and (max-width: 1150px) {
+        margin: 0 0 0 2px;
+      }
+      @include smartphone {
+        font-size: 12px;
+      }
+    }
+  }
 }
