@@ -1,0 +1,7 @@
+.p-sidebar__box
+  .p-sidebar__box__header
+    .p-sidebar__box__header-wakatta.c-button--wakatta__square
+      %span= post.post_likes.count
+      わかった
+    %span.p-sidebar__box__header-category= post.category.name
+  = link_to "#{post.title}", post_path(post), class: 'p-sidebar__box__header-link'

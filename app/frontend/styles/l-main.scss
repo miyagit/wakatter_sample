@@ -56,12 +56,14 @@
     }
     &__box {
       margin-top: 40px;
+      @include flex(start, start);
       &__timeline {
         width: 700px;
         margin-right: 30px;
       }
 
       &__sidebar {
+        margin-left: 30px;
         width: 290px;
       }
     }

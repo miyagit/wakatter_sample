@@ -175,4 +175,8 @@
       }
     }
   }
+  &--wakatta__square {
+    @extend .c-button--square-yellow;
+    padding: 2px 10px;
+  }
 }
