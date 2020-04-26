@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @sidebar_posts = Post.joins(:post_likes).group("post_id").order('count_all DESC').count.keys.map{ |post_id| Post.find(post_id) }
+    @sidebar_posts = Post.order("likes_count DESC")
   end
 
   def show
