@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
-    @sidebar_posts = Post.order("likes_count DESC")
+    @posts = Post.order(created_at: :DESC)
+    @sidebar_posts = Post.order(likes_count: :DESC)
   end
 
   def show
