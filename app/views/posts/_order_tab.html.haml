@@ -1,0 +1,5 @@
+%ul.l-main__contents__orderlist
+  %li.l-main__contents__orderlist-item
+    = link_to '新規投稿順', root_path, class: "#{'active' if active == 'new'}"
+  %li.l-main__contents__orderlist-item
+    = link_to 'わかったが多い順', posts_sort_index_path, class: "#{'active' if active == 'wakatta'}"

@@ -7,8 +7,12 @@ Rails.application.routes.draw do
     resource :mypage, only: :show
   end
 
+  namespace :posts do
+    resources  :sort, only: %i[index]
+  end
+
   resources :posts do
     resources :post_comments, only: :create, controller: 'posts/comments'
-    resource  :likes, only: %i[create destroy], controller: 'posts/likes'
+    resources :likes, only: %i[create destroy], controller: 'posts/likes'
   end
 end
