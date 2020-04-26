@@ -15,13 +15,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to posts_path
+    redirect_to posts_path, flash: {notice: "投稿が完了しました。"}
   end
 
   def edit
     @post = Post.find(params[:id])
     authenticate_user!
-    redirect_to root_path unless current_user == @post.user
+    redirect_to root_path, flash: {alert: "投稿者でなければ、編集できません。"} unless current_user == @post.user
   end
 
   def update
@@ -30,15 +30,15 @@ class PostsController < ApplicationController
     redirect_to root_path unless current_user == @post.user
     post = Post.find(params[:id])
     post.update(post_params)
-    redirect_to posts_path
+    redirect_to posts_path, flash: {notice: "更新が完了しました。"}
   end
 
   def destroy
     authenticate_user!
-    redirect_to root_path unless current_user == @post.user
+    redirect_to root_path, flash: {alert: "投稿者でなければ、削除できません。"} unless current_user == @post.user
     post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, flash: {notice: "削除が完了しました。"}
   end
 
   private

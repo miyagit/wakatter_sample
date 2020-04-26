@@ -1,4 +1,12 @@
 .l-main {
+  &-flash {
+    text-align: center;
+    font-family: NotoSansCJKjp;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px 0;
+  }
+
   &__search {
     background-color: $pale-blue;
 

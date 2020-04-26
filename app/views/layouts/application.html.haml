@@ -10,6 +10,7 @@
   %body
     = yield :stylesheets if content_for?(:stylesheets)
     = render 'layouts/header'
+    = render 'layouts/flash'
     %main.l-main
       = yield
     = render 'layouts/footer'
