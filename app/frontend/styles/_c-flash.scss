@@ -1,0 +1,19 @@
+.flash {
+  text-align: center;
+  font-family: NotoSansCJKjp;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.notice {
+  border-top: 2px solid $light-green;
+  border-bottom: 2px solid $light-green;
+  color: $green;
+}
+
+.alert {
+  border-top: 2px solid $light-red;
+  border-bottom: 2px solid $light-red;
+  color: $red;
+}
