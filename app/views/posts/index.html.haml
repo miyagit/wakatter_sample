@@ -9,6 +9,13 @@
     %li.l-main__contents__orderlist-item
       = link_to 'わかったが多い順', '#'
   .l-main__contents__box
-    = render @posts
-    .l-main__contents__box__sidebar
+    .l-main__contents__box-timeline_wrapper
+      = render @posts
+    .l-main__contents__box__sidebar.p-sidebar
+      %p.p-sidebar-heading 人気投稿順
+      .p-sidebar-wrapper
+        .p-sidebar__box
+          = render partial: 'layouts/sidebar', collection: @sidebar_posts, as: 'post'
 %script new AutoResizer($('.js-commentarea_resize'));
+
+
