@@ -1,11 +1,11 @@
 - if user_signed_in?
   - if post.liked_by?(current_user)
-    = link_to post_likes_path(post), method: :delete, remote: true do
+    = link_to post_like_path(post), method: :delete, remote: true do
       %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button is-active'}
     %p.c-button--wakatta-button__number.is-active= post.likes_count
     %p.c-button--wakatta-button__text.is-active わかった！
   - else
-    = link_to post_likes_path(post), method: :post, remote: true do
+    = link_to post_like_path(post), method: :post, remote: true do
       %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button'}
     %p.c-button--wakatta-button__number= post.likes_count
     %p.c-button--wakatta-button__text わかった！

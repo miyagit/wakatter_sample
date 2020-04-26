@@ -1,12 +1,4 @@
 .l-main {
-  &-flash {
-    text-align: center;
-    font-family: NotoSansCJKjp;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 20px 0;
-  }
-
   &__search {
     background-color: $pale-blue;
 
@@ -53,8 +45,8 @@
         a {
           color: $dark-grey;
           &.active {
-            padding: 7px 15px;
             @extend .c-button--order;
+            padding: 7px 15px;
             font-size: 14px;
             font-weight: bold;
             color: $dark-grey !important;

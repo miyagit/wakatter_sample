@@ -1,4 +1,4 @@
-class Posts::LikesController < PostsController
+class Posts::LikeController < PostsController
   before_action :set_post
 
   def create
