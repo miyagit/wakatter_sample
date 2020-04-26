@@ -1,26 +1,34 @@
-@import 'reset';
-@import 'variable';
-@import 'base';
-@import 'mixin';
-@import 'c-button';
-@import 'l-gnav';
-@import 'header';
-@import 'posts';
-@import 'p-form';
-@import 'l-main';
-@import 'l-footer';
-@import 'p-timeline';
-@import 'c-image';
-@import 'c-comment';
-@import 'c-dropdown';
+// Override
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/dropdown';
-@import 'override';
-@import 'selector';
-@import 'u-utility';
-@import 'p-button';
-@import 'p-sidebar';
-@import 'c-flash';
-// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// Foundation
+@import './Foundation/reset';
+@import './Foundation/variable';
+@import './Foundation/base';
+@import './Foundation/mixin';
+@import './Foundation/override';
+@import './Foundation/selector';
+
+// Object
+// Component
+@import './Object/Component/c-button';
+@import './Object/Component/c-image';
+@import './Object/Component/c-comment';
+@import './Object/Component/c-dropdown';
+@import './Object/Component/c-flash';
+// Project
+@import './Object/Project/p-form';
+@import './Object/Project/p-timeline';
+@import './Object/Project/p-button';
+@import './Object/Project/p-sidebar';
+// Utility
+@import './Object/Utility/u-utility';
+
+// Layout
+@import './Layout/l-header';
+@import './Layout/l-gnav';
+@import './Layout/l-main';
+@import './Layout/l-footer';
