@@ -1,0 +1,4 @@
+- if instance.errors.full_messages.present?
+  %ul.p-form__error.priority
+    - instance.errors.full_messages.each do |msg|
+      %li.p-form__error__item.priority= msg

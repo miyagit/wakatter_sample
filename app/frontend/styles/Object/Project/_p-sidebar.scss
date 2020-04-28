@@ -37,6 +37,7 @@
       &-link {
         font-family: NotoSansCJKjp;
         font-size: 18px;
+        @extend %timeline_hover-link;
       }
     }
   }

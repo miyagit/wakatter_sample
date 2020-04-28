@@ -1,8 +1,12 @@
 class Posts::CommentsController < PostsController
 
   def create
-    comment = PostComment.create(post_params)
-    redirect_to post_path(params[:post_id]), flash: {notice: "コメントの投稿が完了しました。"}
+    comment = PostComment.new(post_params)
+    if comment.save
+      redirect_to post_path(params[:post_id]), flash: {notice: "コメントの投稿が完了しました。"}
+    else
+      redirect_to post_path(params[:post_id]), flash: {alert: "#{comment.errors.full_messages.first}"}
+    end
   end
 
   private
