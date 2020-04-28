@@ -1,6 +1,7 @@
 .p-form
   %h2.p-form-title わかったを投稿する
-  = form_with model: @post, url: post_path(@post), method: :put, class: 'p-form__input' do |f|
+  = form_with model: @post, url: post_path(@post), method: :put, class: 'p-form__input', local: true do |f|
+    = render 'layouts/validation_error', instance: @post
     .p-form__input-field
       = f.label :title, class: 'require'
       = f.text_field :title, autofocus: true

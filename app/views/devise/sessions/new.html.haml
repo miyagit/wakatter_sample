@@ -1,7 +1,6 @@
 .p-form
   %h2.p-form-title ログイン
   = form_with model: @user, url: session_path(@user), class: 'p-form__input', local: true do |f|
-    = render "devise/shared/error_messages", resource: resource
     .p-form__input-field
       = f.label :email
       = f.email_field :email, autofocus: true, autocomplete: "email"

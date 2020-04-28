@@ -6,6 +6,8 @@ class Post < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  validates :title, :url, :description, presence: true
+
   def liked_by?(user)
     post_likes.exists?(user_id: user.id)
   end

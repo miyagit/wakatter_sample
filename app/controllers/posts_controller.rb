@@ -14,8 +14,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
-    redirect_to posts_path, flash: {notice: "投稿が完了しました。"}
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to posts_path, flash: {notice: "投稿が完了しました。"}
+    else
+      render :new
+    end
   end
 
   def edit
@@ -28,9 +32,11 @@ class PostsController < ApplicationController
     authenticate_user!
     @post = Post.find(params[:id])
     redirect_to root_path unless current_user == @post.user
-    post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to posts_path, flash: {notice: "更新が完了しました。"}
+    if @post.update(post_params)
+      redirect_to posts_path, flash: {notice: "更新が完了しました。"}
+    else
+      render :edit
+    end
   end
 
   def destroy
