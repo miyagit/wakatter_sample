@@ -8,7 +8,6 @@
       textarea {
         width: 100%;
         height: 76px;
-        font-family: NotoSansCJKjp;
         border-radius: 2px;
         border: solid 1px $grey;
         background-color: #ffffff;
@@ -28,7 +27,6 @@
   }
 
   &-label {
-    font-family: NotoSansCJKjp;
     font-size: 16px;
     font-weight: bold;
   }
@@ -42,7 +40,6 @@
     &-login_announce {
       margin-top: 30px;
       text-align: center;
-      font-family: NotoSansCJKjp;
       font-size: 16px;
       font-weight: 300;
 
@@ -63,14 +60,12 @@
       &-left {
         display: inline-block;
         margin-right: 10px;
-        font-family: NotoSansCJKjp;
       }
 
       &-right {
         display: inline-block;
 
         a {
-          font-family: NotoSansCJKjp;
           font-size: 14px;
           font-weight: bold;
         }

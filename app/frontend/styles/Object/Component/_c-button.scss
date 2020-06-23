@@ -1,7 +1,6 @@
 // ボタンのコンポーネント
 
 .c-button {
-  box-shadow: 0 0 15px $box-shadow;
   padding: 16px 24px;
   font-size: 16px;
   color: $white !important;
@@ -32,8 +31,14 @@
   // ヘッダーの無料会員登録ボタン
   &--header {
     @extend .c-button--square-yellow;
-    padding: 11px 22px;
+    padding: 9px 12px;
+    font-size: 14px;
     font-weight: bold;
+    @include laptop {
+      display: block;
+      font-size: 16px;
+      text-align: center;
+    }
   }
   // ユーザー登録のボタン
   &--submit {
@@ -41,16 +46,17 @@
     padding: 17px 22px;
     font-size: 14px;
     text-align: center;
-    font-family: NotoSansCJKjp;
     cursor: pointer;
   }
   // 検索ボタン
   &--search {
     @extend .c-button--square-yellow;
-    padding: 12px 54px;
-    font-family: NotoSansCJKjp;
+    padding: 11px;
     font-size: 16px;
     font-weight: bold;
+    @include smartphone {
+      padding: 9px;
+    }
   }
   // 並び替えボタン
   &--order {
@@ -70,7 +76,6 @@
   }
 
   &--comment-post {
-    font-family: NotoSansCJKjp;
     font-weight: bold;
     font-size: 14px;
     padding: 7px 14px;

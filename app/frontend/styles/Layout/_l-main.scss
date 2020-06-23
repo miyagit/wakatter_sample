@@ -3,21 +3,28 @@
     background-color: $pale-blue;
 
     &__form {
+      max-width: 650px;
+      margin: 0 auto;
       padding: 36px 0;
       text-align: center;
+      @include smartphone {
+        padding: 20px 16px;
+      }
 
       &-input {
-        height: 48px;
-        width: 502px;
+        width: calc(100% - 160px);
         border-radius: 2px;
         border: solid 1px #b9bcc2;
         background-color: #fff;
-        font-family: HiraginoSans-W3;
         font-size: 14px;
         color: $grey;
-        padding-left: 19px;
+        padding: 12px;
         &::placeholder {
           color: $grey;
+        }
+        @include smartphone {
+          width: calc(100% - 100px);
+          padding: 10px 10px 10px 15px;
         }
       }
 
@@ -35,7 +42,6 @@
       @include flex(start, center);
 
       &-item {
-        font-family: NotoSansCJKjp;
         font-size: 14px;
 
         &:first-child {

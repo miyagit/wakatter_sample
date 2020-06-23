@@ -1,5 +1,11 @@
 .p-button {
-
+  // トップページの検索ボタン
+  &__hero-search {
+    width: 140px;
+    @include smartphone {
+      width: 80px;
+    }
+  }
   // 記事詳細のわかったボタン
   &__wakatta {
     position: absolute;
