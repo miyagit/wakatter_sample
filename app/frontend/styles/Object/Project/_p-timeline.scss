@@ -15,7 +15,6 @@
         font-size: 16px;
         vertical-align: top;
         margin: 6px 0 0 9px;
-        font-family: NotoSansCJKjp;
       }
 
       .squarebox {
@@ -45,7 +44,6 @@
   &__main {
     &-title {
       font-size: 28px;
-      font-family: NotoSansCJKjp;
       color: $blue;
       cursor: pointer;
       margin-top: 17px;
@@ -95,7 +93,6 @@
     }
 
     &-description {
-      font-family: NotoSansCJKjp;
       font-size: 16px;
       color: $dark-grey;
       p {
@@ -113,7 +110,6 @@
 
   &__footer {
     &-label {
-      font-family: NotoSansCJKjp;
       font-size: 16px;
       font-weight: bold;
     }
@@ -160,7 +156,6 @@
       &-description {
         margin-top: 13px;
         font-size: 14px;
-        font-family: NotoSansCJKjp;
         p {
           margin-bottom: 1em!important;
         }

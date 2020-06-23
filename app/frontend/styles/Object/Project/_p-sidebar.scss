@@ -1,6 +1,5 @@
 .p-sidebar {
   &-heading {
-    font-family: NotoSansCJKjp;
     font-size: 18px;
     font-weight: bold;
     color: $dark-grey;
@@ -13,18 +12,15 @@
       margin-bottom: 20px;
 
       &-wakatta {
-        font-family: NotoSansCJKjp;
         font-size: 12px;
         display: inline-block;
 
         span {
-          font-family: NotoSansCJKjp;
           font-size: 14px;
           font-weight: bold;
         }
       }
       &-category {
-        font-family: NotoSansCJKjp;
         font-size: 12px;
         color: $dark-grey;
         padding: 3px 10px;
@@ -35,7 +31,6 @@
       }
 
       &-link {
-        font-family: NotoSansCJKjp;
         font-size: 18px;
         @extend %timeline_hover-link;
       }

@@ -7,6 +7,10 @@
     %span.l-header__site-author Made by Pikawaka
   .l-header__navigation
     %nav.l-gnav
+      %input#gnav-input.l-gnav__hum-menu.u-dn{type: 'checkbox'}
+      %label.l-gnav__open-menu{for: 'gnav-input'}
+        %span
+      %label.l-gnav__close-menu{for: 'gnav-input'}
       %ul.l-gnav__list
         - if user_signed_in?
           %li.l-gnav__link
