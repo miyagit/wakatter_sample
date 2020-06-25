@@ -73,6 +73,9 @@
   &--comment-registration {
     padding: 7px 13px;
     @extend .c-button--square-yellow;
+    @include smartphone {
+      padding: 9px 13px;
+    }
   }
 
   &--comment-post {
@@ -113,30 +116,28 @@
     background: $white url('../images/bulb_off.svg') no-repeat center / 26px auto;
     transition: none !important;
     &:hover {
-      opacity: .7;
+      background: $white url('../images/bulb_on.svg') no-repeat border-box center 20px/26px;
       border-color: #ffe79a;
     }
-    @include tablet {
+    @include laptop {
+      width: 50px;
+      height: 50px;
+      background-size: 20px auto;
       &:hover {
-        opacity: 1;
+        background: $white url('../images/bulb_off.svg') no-repeat center / 20px auto;
+        border-color: #c9ced9;
       }
-    }
-    @include smartphone {
-      width: 60px;
-      height: 60px;
-      background-color: $white;
     }
     // クリックされたら
     &.is-active {
       border: 2px solid #FFE79B;
       box-shadow: 0 0 15px 0 $light-yellow;
-      background: $white url('../images/bulb_on.svg') no-repeat border-box center 17px/26px;
+      background: $white url('../images/bulb_on.svg') no-repeat border-box center 20px/26px;
       transition: none;
-      @media screen and (max-width: 1150px) {
+      @include laptop {
         border-color: $light-yellow;
-      }
-      @include smartphone {
-        background: $white url('../images/bulb_on.svg') no-repeat border-box center 7px/26px;
+        background-position: center;
+        background-size: 20px auto;
       }
     }
     // わかった数
@@ -148,13 +149,11 @@
       line-height: 1em;
       color: $dark-grey;
       text-decoration: none;
-
       &.is-active {
         color: $light-yellow;
       }
-      @media screen and (max-width: 1150px) {
-        margin: 0;
-        font-size: 18px;
+      @include laptop {
+        text-align: left;
       }
       @include smartphone {
         font-size: 14px;
@@ -168,12 +167,12 @@
       line-height: 1em;
       color: $dark-grey;
       text-decoration: none;
-
       &.is-active {
         color: $light-yellow;
       }
-      @media screen and (max-width: 1150px) {
-        margin: 0 0 0 2px;
+      @include laptop {
+        text-align: left;
+        margin: 5px 0 0 0;
       }
       @include smartphone {
         font-size: 12px;
@@ -183,5 +182,6 @@
   &--wakatta__square {
     @extend .c-button--square-yellow;
     padding: 2px 10px;
+    font-size: 12px;
   }
 }

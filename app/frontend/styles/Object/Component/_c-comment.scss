@@ -1,5 +1,41 @@
 .c-comment {
-  &-wrapper {
+
+  // コメント欄のアバター
+  &__avatar {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  // コメント欄のユーザーネーム
+  &__username {
+    @extend %timeline_hover-link;
+    font-family: Roboto;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  // コメント欄の日付
+  &__time {
+    font-family: Roboto;
+    font-size: 14px;
+    color: $dark-grey;
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  // コメント欄のコメント部分
+  &__detail {
+    margin-top: 13px;
+    font-size: 14px;
+    p {
+      margin-bottom: 1em!important;
+      line-height: 1.8em;
+    }
+  }
+
+  // コメントフォーム
+  &__form {
     form {
       margin-top: 20px;
       padding-bottom: 39px;
@@ -24,24 +60,32 @@
         cursor: pointer;
       }
     }
-  }
 
-  &-label {
-    font-size: 16px;
-    font-weight: bold;
+    // コメントフォームのタイトル
+    &__label {
+      font-size: 16px;
+      font-weight: bold;
+    }
   }
 
   &__box {
-    margin: 20px 20px 0 0;
+    margin: 20px 0 0 0;
     border-radius: 2px;
     background-color: #ffffff;
     border: solid 1px $grey;
+    @include smartphone {
+      padding: 10px 20px;
+    }
 
-    &-login_announce {
+    &__login-announce {
       margin-top: 30px;
       text-align: center;
       font-size: 16px;
       font-weight: 300;
+      @include smartphone {
+        margin-top: 15px;
+        font-size: 14px;
+      }
 
       span {
         display: inline;
@@ -53,21 +97,36 @@
       }
     }
 
-    &__list, ul {
+    &__signup {
       margin: 20px 0 30px;
       text-align: center;
-
-      &-left {
-        display: inline-block;
-        margin-right: 10px;
+      @include smartphone {
+        margin: 10px 0 20px;
+        font-size: 14px;
       }
 
-      &-right {
+      &--left {
         display: inline-block;
+        margin-right: 10px;
+        @include smartphone {
+          display: block;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+
+      &--right {
+        display: inline-block;
+        @include smartphone {
+          display: block;
+        }
 
         a {
           font-size: 14px;
           font-weight: bold;
+          @include smartphone {
+            font-size: 16px;
+          }
         }
       }
     }

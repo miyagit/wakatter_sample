@@ -1,15 +1,14 @@
 %section.l-main__search
   = form_tag('/posts/search', method: 'get', class: 'l-main__search__form') do
     = text_field_tag(:q, '', class: 'l-main__search__form-input', placeholder: '気になるワードで投稿を検索')
-    = submit_tag('検索', name: nil, class: 'l-main__search__form-submit c-button--search')
+    = submit_tag('検索', name: nil, class: 'l-main__search__form-submit p-button__hero-search c-button--search')
 .l-main__contents
   = render 'order_tab', active: 'wakatta'
   .l-main__contents__box
-    .l-main__contents__box-timeline_wrapper
+    .l-article__wrapper
       = render partial: 'posts/post', collection: @posts, as: 'post'
-    .l-main__contents__box__sidebar.p-sidebar
-      %p.p-sidebar-heading 人気投稿順
-      .p-sidebar-wrapper
-        .p-sidebar__box
-          = render partial: 'layouts/sidebar', collection: @posts, as: 'post'
+    .l-sidebar
+      %p.l-sidebar__heading 人気投稿順
+      .l-sidebar__wrapper
+        = render partial: 'layouts/sidebar', collection: @posts, as: 'post'
 %script new AutoResizer($('.js-commentarea_resize'));

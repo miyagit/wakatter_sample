@@ -16,12 +16,12 @@
 // Component
 @import './Object/Component/c-button';
 @import './Object/Component/c-image';
+@import './Object/Component/c-sidebar';
 @import './Object/Component/c-comment';
 @import './Object/Component/c-dropdown';
-@import './Object/Component/c-flash';
 // Project
 @import './Object/Project/p-form';
-@import './Object/Project/p-timeline';
+@import './Object/Project/p-comment';
 @import './Object/Project/p-button';
 @import './Object/Project/p-sidebar';
 // Utility
@@ -30,5 +30,8 @@
 // Layout
 @import './Layout/l-header';
 @import './Layout/l-gnav';
+@import './Layout/l-flash';
 @import './Layout/l-main';
+@import './Layout/l-article';
+@import './Layout/l-sidebar';
 @import './Layout/l-footer';

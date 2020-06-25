@@ -5,11 +5,10 @@
 .l-main__contents
   = render 'order_tab', active: 'new'
   .l-main__contents__box
-    .l-main__contents__box-timeline_wrapper
+    .l-article__wrapper
       = render @posts
-    .l-main__contents__box__sidebar.p-sidebar
-      %p.p-sidebar-heading 人気投稿順
-      .p-sidebar-wrapper
-        .p-sidebar__box
-          = render partial: 'layouts/sidebar', collection: @sidebar_posts, as: 'post'
+    .l-sidebar
+      %p.l-sidebar__heading 人気投稿順
+      .l-sidebar__wrapper
+        = render partial: 'layouts/sidebar', collection: @sidebar_posts, as: 'post'
 %script new AutoResizer($('.js-commentarea_resize'));
