@@ -1,0 +1,17 @@
+// サイドバーのコンテナのスタイル
+
+.l-sidebar {
+  width: 290px;
+  // 1023px以下で幅を変える
+  @include laptop {
+    width: 100%;
+  }
+
+  // サイドバーのタイトル
+  &__heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: $dark-grey;
+    margin-bottom: 30px;
+  }
+}

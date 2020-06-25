@@ -1,10 +1,17 @@
-.flash {
+// フラッシュメッセージのコンテナのスタイル
+
+.l-flash {
   text-align: center;
   font-size: 14px;
   font-weight: bold;
   padding: 20px 0;
+  @include smartphone {
+    padding: 12px 0;
+  }
 }
 
+// 成功時とエラー時のスタイル
+// ※システムでクラス名が自動的に入るため「l-」がつかない
 .notice {
   border-top: 2px solid $light-green;
   border-bottom: 2px solid $light-green;

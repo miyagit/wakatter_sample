@@ -74,10 +74,11 @@ a {
       @extend %transition;
     }
 }
-button {
+button, input[type="submit"] {
   @extend %transition;
   &:hover {
     @extend %transition;
+    cursor: pointer;
   }
 }
 

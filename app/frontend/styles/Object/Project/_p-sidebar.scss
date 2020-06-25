@@ -1,38 +1,37 @@
 .p-sidebar {
-  &-heading {
-    font-size: 18px;
-    font-weight: bold;
-    color: $dark-grey;
-    margin-bottom: 30px;
-  }
-  &__box {
+
+  // サイドバーの人気記事のプロジェクト
+  &__popular-article {
     margin-bottom: 30px;
 
+    // 人気記事のヘッダー部分のプロジェクト
     &__header {
-      margin-bottom: 20px;
+      @include flex();
+      margin-bottom: 10px;
+    }
+
+    // わかったマークのプロジェクト
+    &__wakatta {
+      @include flex(0, center);
+    }
+  }
+
+  &__box {
+
+    &__header {
+
 
       &-wakatta {
         font-size: 12px;
         display: inline-block;
 
-        span {
-          font-size: 14px;
-          font-weight: bold;
-        }
       }
       &-category {
-        font-size: 12px;
-        color: $dark-grey;
-        padding: 3px 10px;
-        border-radius: 2px;
-        border: solid 1px $grey;
-        margin-left: 10px;
-        display: inline-block;
+
       }
 
       &-link {
-        font-size: 18px;
-        @extend %timeline_hover-link;
+        
       }
     }
   }

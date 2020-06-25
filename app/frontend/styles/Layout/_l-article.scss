@@ -1,0 +1,178 @@
+//
+// l-articleに関連するコンテナーブロックのスタイル
+//
+
+.l-article {
+  width: 700px;
+  margin-right: 30px;
+  // 1240px以下で幅を変える
+  @media screen and (max-width: 1240px) {
+    width: 530px;
+  }
+  // 1023px以下で幅を変える
+  @include laptop {
+    width: 100%;
+  }
+
+  // 記事のヘッダー
+  &__header {
+    position: relative;
+    @include flex(between, center);
+    // 1023px以下でflexboxをやめる
+    @include laptop {
+      display: block;
+    }
+
+    &--left {
+      position: relative;
+
+      img {
+        display: inline-block;
+      }
+
+      time {
+        font-family: Roboto;
+        font-size: 14px;
+        vertical-align: top;
+        display: inline-block;
+      }
+    }
+
+    &--right {
+      // 1023px以下で三点リーダーを右へ移動させる
+      @include laptop {
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+      }
+    }
+  }
+
+  // アバターやユーザーネームなど情報が入ったコンテナのスタイル
+  &__user-info {
+    @include flex();
+    // 1023px以下でflexboxをやめる
+    @include laptop {
+      display: block;
+    }
+  }
+
+  // カテゴリーと日付の情報が入ったコンテナのスタイル
+  &__category-box {
+    @include flex(0, center);
+    // 1023px以下でmarginを変える
+    @include laptop {
+      margin-top: 5px;
+    }
+  }
+
+  // ユーザーネームのスタイル
+  &__username {
+    @extend %timeline_hover-link;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+    margin: 6px 0 0 9px;
+    @include smartphone {
+      max-width: 100px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  // 投稿のメインコンテンツ部分のスタイル
+  &__main {
+  }
+
+  // タイトル部分のスタイル
+  &__title {
+    font-size: 28px;
+    color: $blue;
+    cursor: pointer;
+    margin-top: 17px;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    &:hover {
+      color: $hover-light-blue;
+      text-decoration: none;
+      &:after {
+        opacity: 1;
+      }
+    }
+    @include smartphone {
+      font-size: 24px;
+      line-height: 1.4em;
+      margin-top: 10px;
+    }
+  }
+
+  // URL部分のスタイル
+  &__url {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.3em;
+    color: $dark-grey;
+    border-radius: 2px;
+    border: solid 1px $light-blue;
+    background-color: $pale-blue;
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word;
+    margin: 17px 0 20px;
+    &:hover {
+      background-color: #fff;
+      color: $hover-light-blue;
+      transition: all 0.3s ease;
+    }
+  }
+
+  // カテゴリのスタイル
+  &__squarebox {
+    font-size: 14px;
+    color: $dark-grey;
+    padding: 3px 10px;
+    border-radius: 2px;
+    border: solid 1px $grey;
+    margin: 0 14px 0 28px;
+    display: inline-block;
+    vertical-align: top;
+    @include laptop {
+      margin: 0 14px 0 0;
+    }
+  }
+
+  // 記事の詳細テキストのスタイル
+  &__description {
+    line-height: 1.8em;
+    color: $dark-grey;
+    p {
+      margin-bottom: 1em!important;
+    }
+  }
+
+  // 記事のフッター
+  &__footer {
+    margin-top: 40px;
+
+    &-label {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    &__comment-area {
+      margin: 19px 0 50px;
+      background-color: $pale-blue;
+      border-radius: 2px;
+      padding-bottom: 20px;
+    }
+
+    &__commentbox {
+      padding: 20px 30px 0;
+      @include smartphone {
+        padding: 15px 15px 0;
+      }
+    }
+  }
+}

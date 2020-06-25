@@ -2,14 +2,17 @@
   - if post.liked_by?(current_user)
     = link_to post_like_path(post), method: :delete, remote: true do
       %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button is-active'}
-    %p.c-button--wakatta-button__number.is-active= post.likes_count
-    %p.c-button--wakatta-button__text.is-active わかった！
+    .p-button__wakatta__counts
+      %p.c-button--wakatta-button__number.is-active= post.likes_count
+      %p.c-button--wakatta-button__text.is-active わかった！
   - else
     = link_to post_like_path(post), method: :post, remote: true do
       %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button'}
-    %p.c-button--wakatta-button__number= post.likes_count
-    %p.c-button--wakatta-button__text わかった！
+    .p-button__wakatta__counts
+      %p.c-button--wakatta-button__number= post.likes_count
+      %p.c-button--wakatta-button__text わかった！
 - else
   %button{title: 'わかった！', type: '', class: 'c-button--wakatta-button is-active'}
-  %p.c-button--wakatta-button__number.is-active= post.likes_count
-  %p.c-button--wakatta-button__text.is-active わかった！
+  .p-button__wakatta__counts
+    %p.c-button--wakatta-button__number.is-active= post.likes_count
+    %p.c-button--wakatta-button__text.is-active わかった！

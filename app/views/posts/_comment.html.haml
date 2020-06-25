@@ -1,9 +1,9 @@
-.p-timeline__footer__commentbox-unit
+.p-comment
   - if comment.user.avatar.present?
-    = image_tag comment.user.avatar_url, alt: 'ユーザー画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
+    = image_tag comment.user.avatar_url, alt: 'ユーザー画像', class: 'c-comment__avatar c-image__small__round'
   - else
-    = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'p-timeline__footer__commentbox-img c-image__small__round'
-  = link_to comment.user.username, '#', class: 'p-timeline__footer__commentbox-username'
-  %time.p-timeline__footer__commentbox-time= comment.created_at.to_s
-  .p-timeline__footer__commentbox-description
+    = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-comment__avatar c-image__small__round'
+  = link_to comment.user.username, '#', class: 'c-comment__username'
+  %time.c-comment__time= comment.created_at.to_s
+  .c-comment__detail
     = simple_format(comment.body)
