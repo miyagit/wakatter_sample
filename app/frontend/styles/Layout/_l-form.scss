@@ -1,0 +1,75 @@
+// フォームのコンテナのスタイル
+
+.l-form {
+  width: 600px;
+  margin: 0 auto;
+  // 639px以下で幅を変える
+  @media screen and (max-width: 640px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  // マイページのナビゲーション
+  &__nav {
+    text-align: center;
+    margin-bottom: 50px;
+    @media screen and (max-width: 640px) {
+      margin-bottom: 30px;
+    }
+
+    li {
+      display: inline-block;
+      padding: 5px 14px 7px 14px;
+      @media screen and (max-width: 640px) {
+        display: block;
+        padding: 0;
+        border-bottom: 1px solid #c0c6d6;
+        &:first-child {
+          border-top: 1px solid #c0c6d6;
+        }
+      }
+      &.l-form__mypage-edit {
+        padding: 5px 14px 7px 34px;
+        @media screen and (max-width: 640px) {
+          padding: 0;
+        }
+      }
+      a {
+        display: inline-block;
+        font-size: 14px;
+        color: $dark-grey;
+        @media screen and (max-width: 640px) {
+          padding: 11px 16px;
+        }
+        @include smartphone {
+          font-size: 16px;
+        }
+
+        &.active {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  // マイページのナビゲーションで該当するページにいるときのスタイル
+  &__mypage-edit {
+    position: relative;
+    background-color: $light-grey;
+
+    svg {
+      position: absolute;
+      top: 12px;
+      left: 11px;
+      @media screen and (max-width: 640px) {
+        position: relative;
+        top: 0;
+      }
+    }
+
+    a.active {
+      font-weight: bold;
+    }
+  }
+
+}

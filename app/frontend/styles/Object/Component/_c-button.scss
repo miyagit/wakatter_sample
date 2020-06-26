@@ -43,10 +43,13 @@
   // ユーザー登録のボタン
   &--submit {
     @extend .c-button--square-yellow;
-    padding: 17px 22px;
-    font-size: 14px;
+    padding: 12px 22px;
     text-align: center;
     cursor: pointer;
+    @include smartphone {
+      width: 100%;
+      padding: 11px 22px;
+    }
   }
   // 検索ボタン
   &--search {
@@ -68,6 +71,13 @@
     display: inline-block;
     padding: 8px 12px;
     @extend .c-button--square-yellow;
+    @include smartphone {
+      display: block;
+      padding: 11px 12px;
+      font-size: 14px;
+      font-weight: normal;
+      text-align: center;
+    }
   }
   // コメントを投稿する部分での会員登録ボタン
   &--comment-registration {
@@ -83,6 +93,12 @@
     font-size: 14px;
     padding: 7px 14px;
     @extend .c-button--square-yellow;
+    @include smartphone {
+      width: 100%;
+      margin-top: 10px;
+      padding: 11px 14px;
+      font-size: 16px;
+    }
   }
 
   &--wakatta-number {
@@ -183,5 +199,8 @@
     @extend .c-button--square-yellow;
     padding: 2px 10px;
     font-size: 12px;
+    &:hover {
+      background-color: $yellow;
+    }
   }
 }

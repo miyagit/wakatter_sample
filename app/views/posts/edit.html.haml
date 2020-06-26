@@ -1,29 +1,31 @@
-.p-form
-  %h2.p-form-title わかったを投稿する
-  = form_with model: @post, url: post_path(@post), method: :put, class: 'p-form__input', local: true do |f|
-    = render 'layouts/validation_error', instance: @post
-    .p-form__input-field
-      = f.label :title, class: 'require'
-      = f.text_field :title, autofocus: true
-    .p-form__input-field
-      = f.label :url, class: 'require'
-      = f.text_field :url, autofocus: true
-    .p-form__input-field
-      = f.label :category, class: 'require'
-      .p-form__input-field-wrapper
-        = f.select :category_id, Category.pluck(:name, :id), prompt: "分野を選択する"
-    .p-form__input-field
-      = f.label :description, class: 'require_description'
-      = f.text_area :description, autofocus: true, class: 'js-postarea_resize'
-    .p-form__file-field
-      = f.label :image, class: 'option_image'
-      = f.file_field :image, class: 'js-file-field'
-      %span.c-button--image.js-image_button 画像を選択
-      - if @post.image.present?
-        = image_tag @post.image.url, alt: @post.image.identifier + 'の画像', class: 'u-d_block'
-      - else
-        %img.js-image_preview.c-image__middle__square
-    .p-form__input-submit
-      = f.submit "投稿する", class: 'p-button c-button--submit'
+.l-main
+  .l-main__header
+    %h2.l-main__header__title わかったを編集する
+  .l-form
+    = form_with model: @post, url: post_path(@post), method: :put, class: 'p-form__input', local: true do |f|
+      = render 'layouts/validation_error', instance: @post
+      .p-form__input-field
+        = f.label :title, class: 'require'
+        = f.text_field :title, autofocus: true
+      .p-form__input-field
+        = f.label :url, class: 'require'
+        = f.text_field :url, autofocus: true
+      .p-form__input-field
+        = f.label :category, class: 'require'
+        .p-form__input-field-wrapper
+          = f.select :category_id, Category.pluck(:name, :id), prompt: "分野を選択する"
+      .p-form__input-field
+        = f.label :description, class: 'require_description'
+        = f.text_area :description, autofocus: true, class: 'js-postarea_resize'
+      .p-form__file-field
+        = f.label :image, class: 'option_image'
+        = f.file_field :image, class: 'js-file-field'
+        %span.c-button--image.js-image_button 画像を選択
+        - if @post.image.present?
+          = image_tag @post.image.url, alt: @post.image.identifier + 'の画像', class: 'u-d_block'
+        - else
+          %img.js-image_preview.c-image__middle__square
+      .p-form__input-submit
+        = f.submit "投稿する", class: 'p-button c-button--submit'
 %script new AutoResizer($('.js-postarea_resize'));
 %script new ImageUploader ($('.js-image_button'));

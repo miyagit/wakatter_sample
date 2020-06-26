@@ -1,9 +1,5 @@
-- content_for :stylesheets do
-  :css
-    .l-main {margin: 0 auto;}
-    .p-form-title {padding-bottom: 10px;}
-.p-form
-  %h2.p-form-title 投稿詳細ページ
-.l-main__contents__box
+.l-main__header
+  %h2.l-main__header__title 投稿詳細ページ
+.l-main__contents__box--detail
   = render 'post', post: @post
 %script new AutoResizer($('.js-commentarea_resize'));

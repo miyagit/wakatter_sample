@@ -1,16 +1,8 @@
 .p-form {
-  width: 600px;
-  margin: 0 auto;
-
-  &-title {
-    font-size: 28px;
-    text-align: center;
-    padding: 50px 0;
-    font-weight: normal;
-  }
 
   &__error {
     &.priority {
+      margin-bottom: 30px;
       padding: 20px;
       background-color: $error-light-red;
       border: solid 1px $red;
@@ -31,50 +23,13 @@
     }
   }
 
-  &__nav, ul {
-    text-align: center;
-    margin-bottom: 50px;
-
-    li {
-      display: inline-block;
-
-      a {
-        display: inline-block;
-        font-size: 14px;
-        color: $dark-grey;
-        padding: 8px 16px;
-
-        &.active {
-          font-weight: bold;
-          background-color: $light-grey;
-        }
-      }
-
-      &.mypage-edit {
-        position: relative;
-
-        svg {
-          position: absolute;
-          top: 11px;
-          left: 11px;
-        }
-
-        a {
-          padding: 8px 16px 8px 34px;
-        }
-
-        a.active {
-          font-weight: bold;
-          background-color: $light-grey;
-        }
-      }
-    }
-  }
-
   &__input {
 
     &-field {
       margin-bottom: 30px;
+      @include smartphone {
+        margin-bottom: 20px;
+      }
 
       &-wrapper {
         position: relative;
@@ -146,6 +101,9 @@
         font-size: 14px;
         color: $dark-grey;
         padding-left: 15px;
+        @include smartphone {
+          font-size: 16px;
+        }
       }
 
       select {
@@ -180,6 +138,10 @@
         color: $dark-grey;
         padding: 14px;
         resize: none;
+        @include smartphone {
+          font-size: 16px;
+          padding: 10px;
+        }
       }
     }
 
@@ -188,6 +150,9 @@
       padding-top: 20px;
       font-weight: bold;
       margin-bottom: 100px;
+      @include smartphone {
+        margin-bottom: 50px;
+      }
     }
   }
   &__file-field {
@@ -216,9 +181,13 @@
     }
 
     span {
+      @extend %transition;
       font-size: 12px;
       font-weight: bold;
       cursor: pointer;
+      @include smartphone {
+        font-size: 16px;
+      }
     }
 
     img {
