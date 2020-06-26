@@ -76,6 +76,36 @@
       @include laptop {
         display: block;
       }
+      // 投稿詳細ページの投稿部分を包むコンテナ
+      &--detail {
+        width: 700px;
+        margin: 0 auto;
+        @include tablet {
+          width: 100%;
+          padding: 0 20px;
+        }
+        // 投稿詳細ページの中の横幅だけ大きく広げる
+        .l-article {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // 記事詳細などタイトルが出ているコンテナのスタイル
+  &__header {
+    padding: 50px 20px 30px;
+    @include smartphone {
+      padding: 30px 20px;
+    }
+    // タイトルのスタイル
+    &__title {
+      font-size: 28px;
+      text-align: center;
+      font-weight: normal;
+      @include smartphone {
+        font-size: 24px;
+      }
     }
   }
 }

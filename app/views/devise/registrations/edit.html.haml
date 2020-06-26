@@ -1,46 +1,48 @@
-.p-form
-  %h2.p-form-title マイページ
-  %ul.p-form__nav
-    %li.mypage-edit
+.l-main
+  .l-main__header
+    %h2.l-main__header__title マイページ
+  %ul.l-form__nav
+    %li.l-form__mypage-edit
       = icon('fas', 'cog', class: 'fa-sm')
       = link_to 'マイページ情報の編集', edit_user_registration_path, class: 'active'
     %li
       = link_to 'わかった！した投稿', '#'
     %li
       = link_to 'コメントした投稿', '#'
-  = form_with model: @user, url: user_registration_path, class: 'p-form__input', local: true do |f|
-    = render 'layouts/validation_error', instance: @user
-    .p-form__input-field
-      = f.label :username, class: 'require'
-      = f.text_field :username, autofocus: true
-    .p-form__input-field
-      = f.label :email, class: 'require'
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .p-form__input-field
-      = f.label :current_password, class: 'require'
-      = f.password_field :current_password, autocomplete: "current-password"
-    .p-form__input-field
-      = f.label :password, class: 'require'
-      = f.password_field :password, autocomplete: "new-password"
-    .p-form__input-field
-      = f.label :password_confirmation, class: 'require'
-      = f.password_field :password_confirmation, autocomplete: "new-password"
-    .p-form__file-field
-      = f.label :avatar, class: 'option_image'
-      = f.file_field :avatar, class: 'js-file-field'
-      %span.c-button--image.js-image_button 画像を選択
-      - if current_user.avatar.present?
-        = image_tag current_user.avatar.url, alt: current_user.avatar.identifier + 'の画像', class: 'u-d_block c-image__big__round'
-      - else
-        %img.js-image_preview.c-image__big__round
-    .p-form__input-field
-      = f.label :job, class: 'option'
-      = f.text_field :job
-    .p-form__input-field
-      = f.label :profile, class: 'option'
-      = f.text_area :profile, autofocus: true, class: 'js-profile_resize'
-    .p-form__input-submit
-      = f.submit "マイページ情報を変更する", class: 'p-button c-button--submit'
+  .l-form
+    = form_with model: @user, url: user_registration_path, class: 'p-form__input', local: true do |f|
+      = render 'layouts/validation_error', instance: @user
+      .p-form__input-field
+        = f.label :username, class: 'require'
+        = f.text_field :username, autofocus: true
+      .p-form__input-field
+        = f.label :email, class: 'require'
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .p-form__input-field
+        = f.label :current_password, class: 'require'
+        = f.password_field :current_password, autocomplete: "current-password"
+      .p-form__input-field
+        = f.label :password, class: 'require'
+        = f.password_field :password, autocomplete: "new-password"
+      .p-form__input-field
+        = f.label :password_confirmation, class: 'require'
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .p-form__file-field
+        = f.label :avatar, class: 'option_image'
+        = f.file_field :avatar, class: 'js-file-field'
+        %span.c-button--image.js-image_button 画像を選択
+        - if current_user.avatar.present?
+          = image_tag current_user.avatar.url, alt: current_user.avatar.identifier + 'の画像', class: 'u-d_block c-image__big__round'
+        - else
+          %img.js-image_preview.c-image__big__round
+      .p-form__input-field
+        = f.label :job, class: 'option'
+        = f.text_field :job
+      .p-form__input-field
+        = f.label :profile, class: 'option'
+        = f.text_area :profile, autofocus: true, class: 'js-profile_resize'
+      .p-form__input-submit
+        = f.submit "マイページ情報を変更する", class: 'p-button c-button--submit'
 
 %script new ImageUploader ($('.js-image_button'));
 %script new AutoResizer($('.js-profile_resize'));

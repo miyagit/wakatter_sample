@@ -1,19 +1,26 @@
 .c-image {
   &__big__round {
     width: 160px;
+    height: 160px;
     border-radius: 50%;
+    object-fit: cover;
+    border: solid 1px $light-blue;
   }
 
   &__middle__round {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    object-fit: cover;
+    border: solid 1px $light-blue;
   }
 
   &__small__round {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    object-fit: cover;
+    border: solid 1px #CBE2FE;
   }
 
   &__square {
@@ -28,7 +35,8 @@
 
   &__middle__square {
     width: 400px;
-    height: 250px;
+    object-fit: cover;
+    border: solid 1px $light-blue;
   }
 
 
