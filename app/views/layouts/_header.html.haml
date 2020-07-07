@@ -1,26 +1,54 @@
-%header.l-header
+%header#header.l-header
   .l-header__site-title
     .l-header__logo
       %h1.c-logo
         = link_to root_path do
           = displayed_svg 'logo.svg', alt: 'Pikawaka'
-    %span.l-header__site-author Made by Pikawaka
+    .l-header__author
+      %span.l-header__site-author Made by Pikawaka
+      %span.l-header__site-author Challenge Lesson
   .l-header__navigation
     %nav.l-gnav
       %input#gnav-input.l-gnav__hum-menu.u-dn{type: 'checkbox'}
       %label.l-gnav__open-menu{for: 'gnav-input'}
         %span
       %label.l-gnav__close-menu{for: 'gnav-input'}
-      %ul.l-gnav__list
-        - if user_signed_in?
-          %li.l-gnav__link
-            = link_to 'マイページ', edit_user_registration_path
-          %li.l-gnav__link
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete
-          %li.l-gnav__button
-            = link_to 'わかったを投稿する', new_post_path, class: 'p-button c-button--header'
-        - else
-          %li.l-gnav__link
-            = link_to 'ログイン', new_user_session_path
-          %li.l-gnav__button
-            = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--header'
+      - if user_signed_in?
+        .l-gnav__contents--after-login
+          %ul.l-gnav__list.dropdown
+            %li.l-gnav__button
+              = link_to 'わかったを投稿する', new_post_path, class: 'p-button c-button--header'
+            %li.l-gnav__avatar
+              .l-gnav__user-info
+                = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
+                %p.l-gnav__user-name ito_sayaka
+            %li
+              %ul.l-gnav__user-menu
+                %li.l-gnav__user-link
+                  = link_to 'マイページ', edit_user_registration_path
+                %li.l-gnav__user-link
+                  = link_to 'ログアウト', destroy_user_session_path, method: :delete
+          %ul
+            %li.l-gnav__news
+              // ↓↓↓ お知らせが無い時は.js-activeNewsを外すと赤ポチが消える ↓↓↓
+              .l-gnav__bell.js-activeNews
+                = icon('fas', 'bell')
+            %li
+              %ul.l-gnav__news-menu
+                %li.l-gnav__news-title お知らせ
+                %li.l-gnav__news-link
+                  = link_to '【本当に必要？】テレワークを続けた中で通勤時間について考えてみた', '#'
+                  に「わかった！」がつきました。
+                %li.l-gnav__news-link
+                  = link_to '「医学部合格者数関西1位」女子校教師の証言「女子が理数系を苦手なのではない」を読んで', '#'
+                  にコメントがつきました。
+                %li.l-gnav__news-link
+                  = link_to '"A Message from Co-Founder and CEO Brian Chesky"を読んで', '#'
+                  にコメントがつきました。
+      - else
+        .l-gnav__contents--before-login
+          %ul.l-gnav__list
+            %li.l-gnav__link
+              = link_to 'ログイン', new_user_session_path
+            %li.l-gnav__button
+              = link_to '無料会員登録', new_user_registration_path, class: 'p-button c-button--header'
