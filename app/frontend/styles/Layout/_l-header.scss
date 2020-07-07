@@ -1,25 +1,34 @@
 .l-header {
   box-shadow: 0 0 15px $box-shadow;
   background-color: $white;
-  padding: 15px 30px 15px 20px;
+  padding: 0 0 0 20px;
+  @include laptop {
+    padding: 15px 20px;
+  }
   @include smartphone {
     padding: 0 10px;
   }
   @include flex(between, center);
+  &__author {
+    margin-left: 10px;
+    padding-top: 6px;
+    @include smartphone {
+      padding-top: 4px;
+    }
+  }
   &__site {
     &-title {
       @include flex(start, center);
     }
 
     &-author {
-      display: inline-block;
-      padding-left: 10px;
+      display: block;
       color: $grey;
       font-size: 12px;
-      margin-top: 20px;
-      font-family: Roboto;
+      line-height: 1.4em;
       @include smartphone {
-        margin-top: 14px;
+        font-size: 10px;
+        line-height: 1.2em;
       }
     }
   }

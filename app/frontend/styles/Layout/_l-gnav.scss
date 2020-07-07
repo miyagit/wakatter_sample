@@ -1,34 +1,250 @@
 // グローバルナビゲーションのスタイル
 
 .l-gnav {
+  &__contents {
+    &--before-login {
+      @include flex();
+      padding: 15px 30px 15px 0;
+      @include laptop {
+        display: block;
+        padding: 20px 30px;
+      }
+    }
+    &--after-login {
+      @include flex();
+      @include laptop {
+        display: block;
+        padding: 20px 30px;
+      }
+    }
+  }
+
   &__list {
     font-size: 14px;
     position: relative;
     @include flex(between, center);
-    // グロナビの最初のli以外に適用
-    li:not(:first-child) {
-      padding-left: 30px;
-      @include laptop {
-        padding: 10px 30px;
-      }
-    }
     @include laptop {
       display: block;
     }
   }
 
-  &__link { // グロナビのリンク
+  // グロナビのリンク
+  &__link {
+    padding: 0 30px 0 0;
     a {
       color: $dark-grey;
       &:hover {
         color: $blue;
-        text-decoration: underline;
       }
     }
     @include laptop {
-      padding: 20px 30px 10px 30px;
+      padding: 0 0px 20px 0px;
+      font-size: 16px;
     }
   }
+
+  // ヘッダーのボタン
+  &__button {
+    @include laptop {
+      width: 100%;
+    }
+  }
+
+  // アバター部分
+  &__avatar {
+    position: relative;
+    margin-left: 4px;
+    padding: 15px 50px 15px 30px;
+    // hoverすると
+    cursor: pointer;
+    @extend %transition;
+    @include laptop {
+      padding: 20px 0 0 0;
+    }
+    &:hover {
+      background-color: #f5f7fe;
+      @include laptop {
+        background-color: $white;
+      }
+    }
+    // ユーザー情報の横のボーダー
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 15px;
+      right: 0;
+      width: 2px;
+      height: 40px;
+      background-color: $light-grey;
+      border: none;
+      @include laptop {
+        display: none;
+      }
+    }
+
+  }
+  // アバターのユーザー情報部分
+  &__user {
+    // 情報部分
+    &-info {
+      position: relative;
+      @include flex(0, center);
+      @include laptop {
+        margin-bottom: 10px;
+      }
+      // ユーザー情報の横の矢印
+      &:after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 19px;
+      box-sizing: border-box;
+      width: 4px;
+      height: 4px;
+      border: 4px solid transparent;
+      border-top: 4px solid $dark-grey;
+      @include laptop {
+        display: none;
+        }
+      }
+    }
+    // ユーザーネーム
+    &-name {
+      margin-left: 10px;
+      @include laptop {
+        font-size: 16px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+    // ユーザーメニュー
+    &-menu {
+      transform: translate3d(200px, 60px, 0px) !important;
+      border: 1px solid $light-blue;
+      box-shadow: 0 0 15px $box-shadow;
+      @include laptop {
+        transform: none !important;
+        border: none;
+        box-shadow: none;
+        border-top: 1px solid $light-grey;
+        border-bottom: 1px solid $light-grey;
+        font-size: 16px;
+      }
+    }
+    // メニューのリンク
+    &-link {
+      @include laptop {
+        padding: 15px 0;
+        border-bottom: 1px solid $light-grey;
+        &:first-child {
+
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  // お知らせ
+  &__news {
+    padding: 20px 30px 20px 30px;
+    // hoverすると
+    cursor: pointer;
+    @extend %transition;
+    @include laptop {
+      padding: 0;
+    }
+    &:hover {
+      background-color: #f5f7fe;
+      @include laptop {
+        background-color: $white;
+      }
+    }
+    //お知らせ内容
+    &-menu {
+      transform: translate3d(-10px, 65px, 0px) !important;
+      right: 0 !important;
+      left: auto !important;
+      padding: 0 !important;
+      width: 300px;
+      border: 1px solid $light-blue;
+      box-shadow: 0 0 15px $box-shadow;
+      color: $dark-grey;
+      @include laptop {
+        width: 100%;
+        transform: none !important;
+        border: none;
+        box-shadow: none;
+        font-size: 16px;
+      }
+
+      // お知らせの項目だけに使うオーバーライド
+      li {
+        &:not(:first-child) {
+          padding: 16px !important;
+          @include laptop {
+            padding: 20px 0 !important;
+            line-height: 1.6em;
+          }
+        }
+        &:nth-child(n+3) {
+          border-top: 1px solid $light-grey;
+        }
+        &:nth-child(2) {
+          margin: 0 !important;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    // タイトル
+    &-title {
+      margin-top: 0 !important;
+      padding: 8px 16px !important;
+      border-bottom: 1px solid $light-grey;
+      font-weight: bold;
+      line-height: 1em;
+      @include laptop {
+        padding: 15px 0 0 5px !important;
+        border-bottom: none;
+        font-size: 16px;
+      }
+    }
+    &-link {
+      white-space: normal;
+      a {
+        display: inline !important;
+        padding-left: 0 !important;
+      }
+    }
+  }
+  // ベルアイコン
+  &__bell {
+    position: relative;
+    font-size: 20px;
+    @include laptop {
+      display: none;
+    }
+
+    // お知らせがあったら
+    &.js-activeNews {
+      &:after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        width: 4px;
+        height: 4px;
+        border-radius: 99px;
+        background-color: $red;
+      }
+    }
+  }
+
+  // ハンバーガーメニュー
   &__hum-menu {
     display: none;
   }
@@ -69,7 +285,8 @@
       opacity: 0;
       transition: .3s ease-in-out;
     }
-    &__list {
+    &__contents--before-login,
+    &__contents--after-login, {
       overflow: auto;
       position: fixed;
       top: 0;
@@ -86,7 +303,8 @@
       display: block;
       opacity: .5;
     }
-    &__hum-menu:checked ~ &__list {
+    &__hum-menu:checked ~ &__contents--before-login,
+    &__hum-menu:checked ~ &__contents--after-login, {
       transform: translateX(0);
       box-shadow: 6px 0 25px rgba(0,0,0,.15);
     }
