@@ -4,14 +4,7 @@
 
 //
 // メディアクエリ
-//
-// 大きい画面のPCのレイアウト
-@mixin laptop-large {
-  @media screen and (min-width: 1441px) {
-    @content;
-  }
-}
-// 小さい画面のPCのレイアウト
+// PCのレイアウト
 @mixin laptop {
   @media screen and (max-width: 1023px) {
     @content;
