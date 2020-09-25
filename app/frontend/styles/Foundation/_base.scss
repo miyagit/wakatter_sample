@@ -17,9 +17,6 @@ body {
 
 // hoverした時にふわっとさせる
 %transition {
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all  0.3s ease;
 }
 a {
@@ -40,53 +37,5 @@ button, input[type="submit"] {
   &:hover {
     @extend %transition;
     cursor: pointer;
-  }
-}
-
-// Pikawaka用のiconfont
-@font-face {
-  font-family: '#{$icomoon-font-family}';
-  src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?uuw09d') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?uuw09d') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?uuw09d##{$icomoon-font-family}') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-i {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: '#{$icomoon-font-family}' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.wakattericon-wakatta {
-  &:before {
-    content: $wakattericon-wakatta;
-  }
-}
-.wakattericon-search {
-  &:before {
-    content: $wakattericon-search;
-  }
-}
-.wakattericon-link {
-  &:before {
-    content: $wakattericon-link;
-  }
-}
-.wakattericon-trash {
-  &:before {
-    content: $wakattericon-trash;
   }
 }

@@ -34,7 +34,7 @@
     padding: 11px 25px;
     font-size: 12px;
     font-weight: bold;
-    @include laptop {
+    @include tablet {
       display: block;
       font-size: 16px;
       text-align: center;
@@ -135,7 +135,7 @@
       background: $white url('../images/bulb_on.svg') no-repeat border-box center 20px/26px;
       border-color: #ffe79a;
     }
-    @include laptop {
+    @include tablet {
       width: 50px;
       height: 50px;
       background-size: 20px auto;
@@ -150,7 +150,7 @@
       box-shadow: 0 0 15px 0 $light-yellow;
       background: $white url('../images/bulb_on.svg') no-repeat border-box center 20px/26px;
       transition: none;
-      @include laptop {
+      @include tablet {
         border-color: $light-yellow;
         background-position: center;
         background-size: 20px auto;
@@ -168,7 +168,7 @@
       &.is-active {
         color: $light-yellow;
       }
-      @include laptop {
+      @include tablet {
         text-align: left;
       }
       @include smartphone {
@@ -186,7 +186,7 @@
       &.is-active {
         color: $light-yellow;
       }
-      @include laptop {
+      @include tablet {
         text-align: left;
         margin: 5px 0 0 0;
       }

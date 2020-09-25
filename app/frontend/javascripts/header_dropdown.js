@@ -39,7 +39,7 @@
           });
 
         } else if (window.matchMedia("screen and (max-width:1023px)").matches) {
-          // Laptop小サイズ以下の時だけ発火
+          // Tabletサイズ以下の時だけ発火
           // HTML記述を初期状態に戻す
           function HTMLRestore() {
             document.getElementById("header").innerHTML = defaultHTML;

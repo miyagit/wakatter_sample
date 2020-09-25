@@ -5,14 +5,14 @@
     &--before-login {
       @include flex();
       padding: 15px 30px 15px 0;
-      @include laptop {
+      @include tablet {
         display: block;
         padding: 20px 30px;
       }
     }
     &--after-login {
       @include flex();
-      @include laptop {
+      @include tablet {
         display: block;
         padding: 20px 30px;
       }
@@ -23,7 +23,7 @@
     font-size: 14px;
     position: relative;
     @include flex(between, center);
-    @include laptop {
+    @include tablet {
       display: block;
     }
   }
@@ -37,7 +37,7 @@
         color: $blue;
       }
     }
-    @include laptop {
+    @include tablet {
       padding: 0 0px 20px 0px;
       font-size: 16px;
     }
@@ -45,7 +45,7 @@
 
   // ヘッダーのボタン
   &__button {
-    @include laptop {
+    @include tablet {
       width: 100%;
     }
   }
@@ -58,12 +58,12 @@
     // hoverすると
     cursor: pointer;
     @extend %transition;
-    @include laptop {
+    @include tablet {
       padding: 20px 0 0 0;
     }
     &:hover {
       background-color: #f5f7fe;
-      @include laptop {
+      @include tablet {
         background-color: $white;
       }
     }
@@ -78,7 +78,7 @@
       height: 40px;
       background-color: $light-grey;
       border: none;
-      @include laptop {
+      @include tablet {
         display: none;
       }
     }
@@ -90,7 +90,7 @@
     &-info {
       position: relative;
       @include flex(0, center);
-      @include laptop {
+      @include tablet {
         margin-bottom: 10px;
       }
       // ユーザー情報の横の矢印
@@ -104,7 +104,7 @@
       height: 4px;
       border: 4px solid transparent;
       border-top: 4px solid $dark-grey;
-      @include laptop {
+      @include tablet {
         display: none;
         }
       }
@@ -112,7 +112,7 @@
     // ユーザーネーム
     &-name {
       margin-left: 10px;
-      @include laptop {
+      @include tablet {
         font-size: 16px;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -125,7 +125,7 @@
       border: 1px solid $light-blue;
       box-shadow: 0 0 15px $box-shadow;
       border-radius: 4px;
-      @include laptop {
+      @include tablet {
         transform: none !important;
         border: none;
         box-shadow: none;
@@ -137,7 +137,7 @@
     }
     // メニューのリンク
     &-link {
-      @include laptop {
+      @include tablet {
         padding: 15px 0;
         border-bottom: 1px solid $light-grey;
         &:first-child {
@@ -156,12 +156,12 @@
     // hoverすると
     cursor: pointer;
     @extend %transition;
-    @include laptop {
+    @include tablet {
       padding: 0;
     }
     &:hover {
       background-color: #f5f7fe;
-      @include laptop {
+      @include tablet {
         background-color: $white;
       }
     }
@@ -176,7 +176,7 @@
       box-shadow: 0 0 15px $box-shadow;
       border-radius: 4px;
       color: $dark-grey;
-      @include laptop {
+      @include tablet {
         width: 100%;
         transform: none !important;
         border: none;
@@ -188,7 +188,7 @@
       li {
         &:not(:first-child) {
           padding: 16px !important;
-          @include laptop {
+          @include tablet {
             padding: 20px 0 !important;
             line-height: 1.6em;
           }
@@ -211,7 +211,7 @@
       border-bottom: 1px solid $light-grey;
       font-weight: bold;
       line-height: 1em;
-      @include laptop {
+      @include tablet {
         padding: 15px 0 0 5px !important;
         border-bottom: none;
         font-size: 16px;
@@ -229,7 +229,7 @@
   &__bell {
     position: relative;
     font-size: 20px;
-    @include laptop {
+    @include tablet {
       display: none;
     }
 
@@ -252,7 +252,7 @@
     display: none;
   }
   // 1023px以下のときハンバーガーメニューにする
-  @include laptop {
+  @include tablet {
     &__open-menu {
       display: inline-block;
       width: 30px;

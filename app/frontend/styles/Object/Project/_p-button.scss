@@ -12,14 +12,14 @@
     top: 0;
     left: -110px;
     // タブレット以下でボタンを移動
-    @include laptop {
+    @include tablet {
       @include flex();
       left: auto;
       right: 0;
       z-index: 1;
     }
     // わかった数のカウント部分のスタイル
-    @include laptop {
+    @include tablet {
       &__counts {
         margin-left: 10px;
       }
