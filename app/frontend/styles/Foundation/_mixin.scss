@@ -4,18 +4,13 @@
 
 //
 // メディアクエリ
-// PCのレイアウト
-@mixin laptop {
+// タブレットのレイアウト
+@mixin tablet {
   @media screen and (max-width: 1023px) {
     @content;
   }
 }
-// タブレットレイアウト
-@mixin tablet {
-  @media screen and (max-width: 768px) {
-    @content;
-  }
-}
+
 // スマホレイアウト
 @mixin smartphone {
   @media screen and (max-width: 480px) {

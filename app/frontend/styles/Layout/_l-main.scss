@@ -42,7 +42,7 @@
       width: 780px;
     }
     // 1023px以下で幅を変える
-    @include laptop {
+    @include tablet {
       width: 100%;
       padding: 0 20px;
     }
@@ -73,17 +73,19 @@
       margin-top: 40px;
       @include flex(start, start);
       // 1023px以下でflexboxをやめる
-      @include laptop {
+      @include tablet {
         display: block;
       }
       // 投稿詳細ページの投稿部分を包むコンテナ
       &--detail {
         width: 700px;
         margin: 0 auto;
-        @include tablet {
+
+        @media screen and (max-width: 768px) {
           width: 100%;
           padding: 0 20px;
         }
+
         // 投稿詳細ページの中の横幅だけ大きく広げる
         .l-article {
           width: 100%;

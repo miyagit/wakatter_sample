@@ -3,7 +3,7 @@
 .l-sidebar {
   width: 290px;
   // 1023px以下で幅を変える
-  @include laptop {
+  @include tablet {
     width: 100%;
   }
 

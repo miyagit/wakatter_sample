@@ -10,7 +10,7 @@
     width: 530px;
   }
   // 1023px以下で幅を変える
-  @include laptop {
+  @include tablet {
     width: 100%;
   }
 
@@ -19,7 +19,7 @@
     position: relative;
     @include flex(between, center);
     // 1023px以下でflexboxをやめる
-    @include laptop {
+    @include tablet {
       display: block;
     }
 
@@ -40,7 +40,7 @@
 
     &--right {
       // 1023px以下で三点リーダーを右へ移動させる
-      @include laptop {
+      @include tablet {
         position: absolute;
         right: 0;
         bottom: 5px;
@@ -52,7 +52,7 @@
   &__user-info {
     @include flex();
     // 1023px以下でflexboxをやめる
-    @include laptop {
+    @include tablet {
       display: block;
     }
   }
@@ -61,7 +61,7 @@
   &__category-box {
     @include flex(0, center);
     // 1023px以下でmarginを変える
-    @include laptop {
+    @include tablet {
       margin-top: 5px;
     }
   }
@@ -138,7 +138,7 @@
     margin: 0 14px 0 28px;
     display: inline-block;
     vertical-align: top;
-    @include laptop {
+    @include tablet {
       margin: 0 14px 0 0;
     }
   }
