@@ -1,4 +1,4 @@
-%header#header.l-header
+%header#header.l-header{style: 'margin-top: -10px;'}
   .l-header__site-title
     .l-header__logo
       %h1
@@ -15,26 +15,23 @@
       %label.l-gnav__close-menu{for: 'gnav-input'}
       - if user_signed_in?
         .l-gnav__contents--after-login
-          %ul.l-gnav__list.dropdown
+          %ul.l-gnav__list
             %li.l-gnav__button
               = link_to 'わかったを投稿する', new_post_path, class: 'p-button c-button--header'
-            %li.l-gnav__avatar
-              .l-gnav__user-info
+            %li.l-gnav__avatar.dropdown
+              %a.l-gnav__user-info.dropdown-toggle{"data-bs-toggle" => "dropdown", "aria-expanded" => "false", "id" => "dropdownUserLink", "href" => "#"}
                 = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
                 %p.l-gnav__user-name ito_sayaka
-            %li
-              %ul.l-gnav__user-menu
+              %ul.l-gnav__user-menu.dropdown-menu{"aria-labelledby" => "dropdownUserLink"}
                 %li.l-gnav__user-link
                   = link_to 'マイページ', edit_user_registration_path
                 %li.l-gnav__user-link
                   = link_to 'ログアウト', destroy_user_session_path, method: :delete
           %ul
-            %li.l-gnav__news
-              // ↓↓↓ お知らせが無い時は.js-activeNewsを外すと赤ポチが消える ↓↓↓
-              .l-gnav__bell.js-activeNews
+            %li.l-gnav__news.dropdown
+              %a.l-gnav__bell.js-activeNews.dropdown-toggle{"data-bs-toggle" => "dropdown", "aria-expanded" => "false", "id" => "dropdownNewsLink", "href" => "#"}
                 = icon('fas', 'bell')
-            %li
-              %ul.l-gnav__news-menu
+              %ul.l-gnav__news-menu.dropdown-menu{"aria-labelledby" => "dropdownNewsLink"}
                 %li.l-gnav__news-title お知らせ
                 %li.l-gnav__news-link
                   = link_to '【本当に必要？】テレワークを続けた中で通勤時間について考えてみた', '#'

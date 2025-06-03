@@ -1,26 +1,28 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.1.2'
 
 # Default
-gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-gem 'mysql2', '0.4.4'
-gem 'puma', '~> 4.1'
-gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 4.0'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.7'
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', "~> 1.14", require: false
+gem 'jbuilder', "~> 2.11"
+gem 'mysql2', "~> 0.5"
+gem 'puma', "~> 6.0"
+gem 'rails', '7.0.3.1'
+gem 'sass-rails', "~> 6.0"
+gem 'turbolinks', "~> 5.2"
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'webpacker', "~> 5.4"
 
 # Front
-gem 'bootstrap-sass', '~> 3.3'
-gem 'erb2haml', '~> 0.1'
-gem 'haml-rails', '~> 1.0'
+gem 'bootstrap-sass', "~> 3.4"
+gem 'erb2haml', "~> 0.1"
+gem 'haml-rails', "~> 2.1"
 gem 'font-awesome-sass'
 
 # Environment variable
 gem 'dotenv-rails', '~> 2.2'
+gem 'concurrent-ruby', '1.3.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -30,31 +32,31 @@ group :development, :test do
 end
 
 # Auth Gems
-gem 'devise', '~> 4.4'
+gem 'devise', "~> 4.8"
 
 # Image uploader
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', "~> 2.2"
 gem 'fog-aws'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', "~> 4.2"
+  gem 'listen', "~> 3.7"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring', "~> 4.1"
+  gem 'spring-watcher-listen', "~> 2.1"
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'capybara', "~> 3.38"
+  gem 'selenium-webdriver', "~> 4.6"
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  gem 'webdrivers', "~> 5.2"
 end
 
 group :production do
-  gem 'rails_12factor', '~> 0.0.3'
+  gem 'rails_12factor', "~> 0.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
