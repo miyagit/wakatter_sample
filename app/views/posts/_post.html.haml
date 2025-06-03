@@ -14,22 +14,25 @@
           %time= post.created_at.to_s
     .l-article__header--right
       .c-dropdown.dropdown
-        %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
+        %a.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :id => "dropdownMenuLink"}
           %span.c-dropdown-dots
           %span.c-dropdown-dots
           %span.c-dropdown-dots
-        %ul.dropdown-menu{:aria-labelledby => "dropdownMenuLink"}
+        %ul.dropdown-menu.shadow{"aria-labelledby" => "dropdownMenuLink"}
           - unless action_name == 'show'
-            %li.dropdown-item.c-dropdown-item
-              = icon('fas', 'book')
-              = link_to '詳細', post_path(post), class: 'details'
+            %li
+              %a.dropdown-item.c-dropdown-item{href: post_path(post)}
+                = icon('fas', 'book')
+                %span.ms-2 詳細
           - if user_signed_in? && post.user == current_user
-            %li.dropdown-item.c-dropdown-item
-              = icon('fas', 'edit')
-              = link_to '編集', edit_post_path(post), class: 'edit'
-            %li.dropdown-item.c-dropdown-item
-              = icon('fas', 'trash')
-              = link_to "削除", post_path(post), method: :delete, class: 'delete', data: { confirm: "本当に削除しますか？" }
+            %li
+              %a.dropdown-item.c-dropdown-item{href: edit_post_path(post)}
+                = icon('fas', 'edit')
+                %span.ms-2 編集
+            %li
+              = link_to post_path(post), method: :delete, class: 'dropdown-item c-dropdown-item', data: { confirm: "本当に削除しますか？" } do
+                = icon('fas', 'trash')
+                %span.ms-2 削除
   .l-article__main
     = link_to "#{post.title}", post_path(post), class: 'l-article__title'
     = link_to "#{post.url}", "#{post.url}", target: :_blank, class: 'l-article__url'
