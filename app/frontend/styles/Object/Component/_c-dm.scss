@@ -1,0 +1,218 @@
+// app/frontend/styles/Object/Component/_c-dm.scss
+.c-dm {
+  &__room-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid $light-grey;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $pale-blue;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__room-avatar {
+    margin-right: 15px;
+  }
+
+  &__room-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  &__room-username {
+    font-weight: bold;
+    font-size: 16px;
+    color: $dark-grey;
+  }
+
+  &__room-time {
+    font-size: 12px;
+    color: $grey;
+  }
+
+  &__room-preview {
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: $grey;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__chat-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__chat-username {
+    font-weight: bold;
+    font-size: 18px;
+    color: $dark-grey;
+  }
+
+  &__message {
+    display: flex;
+    margin-bottom: 10px;
+
+    &--own {
+      justify-content: flex-end;
+      
+      .c-dm__message-content {
+        align-items: flex-end;
+      }
+
+      .c-dm__message-bubble {
+        background-color: $primary-blue;
+        color: $white;
+        border-radius: 18px 18px 4px 18px;
+      }
+    }
+
+    &--other {
+      justify-content: flex-start;
+
+      .c-dm__message-content {
+        align-items: flex-start;
+      }
+
+      .c-dm__message-bubble {
+        background-color: $light-grey;
+        color: $dark-grey;
+        border-radius: 18px 18px 18px 4px;
+      }
+    }
+  }
+
+  &__message-avatar {
+    margin-right: 10px;
+  }
+
+  &__message-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+  }
+
+  &__message-bubble {
+    padding: 12px 16px;
+    margin-bottom: 2px;
+    word-wrap: break-word;
+
+    p {
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+
+  &__message-time {
+    span {
+      font-size: 11px;
+      color: $grey;
+      padding: 0 5px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 40px;
+    max-height: 80px;
+    border: 1px solid $grey;
+    border-radius: 20px;
+    padding: 10px 15px;
+    resize: none;
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+    line-height: 1.4;
+    overflow-y: hidden;
+    transition: height 0.1s ease;
+
+    &:focus {
+      border-color: $primary-blue;
+    }
+
+    &::placeholder {
+      color: $grey;
+    }
+  }
+
+  &__form-input {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__form-submit {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 2px; // テキストエリアとボタンの位置を調整
+  }
+}
+
+.c-user {
+  &__profile-card {
+    background-color: $white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  &__profile-avatar {
+    margin-bottom: 20px;
+  }
+
+  &__profile-info {
+    margin-bottom: 30px;
+  }
+
+  &__profile-username {
+    font-size: 24px;
+    font-weight: bold;
+    color: $dark-grey;
+    margin-bottom: 10px;
+  }
+
+  &__profile-job {
+    font-size: 16px;
+    color: $grey;
+    margin-bottom: 15px;
+  }
+
+  &__profile-description {
+    font-size: 14px;
+    color: $dark-grey;
+    line-height: 1.6;
+  }
+
+  &__profile-actions {
+    display: flex;
+    justify-content: center;
+  }
+}

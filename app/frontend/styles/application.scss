@@ -16,6 +16,7 @@
 @import './Object/Component/c-sidebar';
 @import './Object/Component/c-comment';
 @import './Object/Component/c-dropdown';
+@import './Object/Component/c-dm'; // 追加
 // Project
 @import './Object/Project/p-form';
 @import './Object/Project/p-comment';
@@ -32,4 +33,5 @@
 @import './Layout/l-article';
 @import './Layout/l-sidebar';
 @import './Layout/l-form';
+@import './Layout/l-dm'; // 追加
 @import './Layout/l-footer';

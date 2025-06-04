@@ -15,12 +15,13 @@
     border: solid 1px $light-blue;
   }
 
-  &__small__round {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: solid 1px #CBE2FE;
+  &__small {
+    &__round {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
   }
 
   &__square {

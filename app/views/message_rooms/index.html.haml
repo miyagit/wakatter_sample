@@ -1,0 +1,26 @@
+-# app/views/message_rooms/index.html.haml
+.l-main
+  .l-main__header
+    %h2.l-main__header__title メッセージ
+  .l-dm
+    .l-dm__container
+      - if @message_rooms.any?
+        .l-dm__room-list
+          - @message_rooms.each do |room|
+            - other_user = room.other_user(current_user)
+            - last_message = room.last_message
+            = link_to message_room_path(room), class: 'c-dm__room-item' do
+              .c-dm__room-avatar
+                - if other_user.avatar.present?
+                  = image_tag other_user.avatar.url, alt: 'ユーザー画像', class: 'c-image__middle__round'
+                - else
+                  = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
+              .c-dm__room-content
+                .c-dm__room-header
+                  %span.c-dm__room-username= other_user.username
+                  %span.c-dm__room-time= last_message&.created_at&.strftime('%m/%d')
+                .c-dm__room-preview
+                  %p= truncate(last_message&.content, length: 50)
+      - else
+        .l-dm__empty
+          %p まだメッセージがありません

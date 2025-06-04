@@ -203,4 +203,29 @@
       background-color: $yellow;
     }
   }
+
+  // DMボタン
+  &--dm {
+    @extend .c-button--square-yellow;
+    padding: 12px 24px;
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  // DM送信ボタン
+  &--dm-send {
+    @extend .c-button--square-yellow;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  // 戻るボタン
+  &--back {
+    @extend .c-button--square-light-blue;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-decoration: none;
+  }
 }

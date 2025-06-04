@@ -1,0 +1,20 @@
+-# app/views/users/show.html.haml
+.l-main
+  .l-main__header
+    %h2.l-main__header__title= @user.username + 'のプロフィール'
+  .l-user-profile
+    .c-user__profile-card
+      .c-user__profile-avatar
+        - if @user.avatar.present?
+          = image_tag @user.avatar.url, alt: 'ユーザー画像', class: 'c-image__big__round'
+        - else
+          = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__big__round'
+      .c-user__profile-info
+        %h3.c-user__profile-username= @user.username
+        - if @user.job.present?
+          %p.c-user__profile-job= @user.job
+        - if @user.profile.present?
+          %p.c-user__profile-description= simple_format(@user.profile)
+      .c-user__profile-actions
+        - if current_user != @user
+          = link_to 'メッセージを送る', dm_user_path(@user), method: :get, class: 'c-button--dm'

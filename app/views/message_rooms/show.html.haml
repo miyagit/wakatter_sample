@@ -1,0 +1,35 @@
+-# app/views/message_rooms/show.html.haml
+.l-main
+  .l-dm
+    .l-dm__chat-container
+      .l-dm__chat-header
+        .c-dm__chat-user-info
+          - if @other_user&.avatar&.present?
+            = image_tag @other_user.avatar.url, alt: 'ユーザー画像', class: 'c-image__small__round'
+          - else
+            = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__small__round'
+          %span.c-dm__chat-username= @other_user.username
+        = link_to 'メッセージ一覧に戻る', message_rooms_path, class: 'c-button--back'
+      
+      .l-dm__messages-container
+        .l-dm__messages
+          - @messages.each do |message|
+            .c-dm__message{class: message.user == current_user ? 'c-dm__message--own' : 'c-dm__message--other'}
+              - unless message.user == current_user
+                .c-dm__message-avatar
+                  - if message.user.avatar.present?
+                    = image_tag message.user.avatar.url, alt: 'ユーザー画像', class: 'c-image__small__round'
+                  - else
+                    = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__small__round'
+              .c-dm__message-content
+                .c-dm__message-bubble
+                  %p= simple_format(message.content)
+                .c-dm__message-time
+                  %span= message.created_at.strftime('%H:%M')
+      
+      .l-dm__form-container
+        = form_with model: [@message_room, @message], class: 'c-dm__form', local: true do |f|
+          .c-dm__form-input
+            = f.text_area :content, placeholder: 'メッセージを入力... (Shift+Enterで改行)', class: 'c-dm__textarea', rows: 1
+          .c-dm__form-submit
+            = f.submit '送信', class: 'c-button--dm-send'

@@ -18,6 +18,8 @@
           %ul.l-gnav__list
             %li.l-gnav__button
               = link_to 'わかったを投稿する', new_post_path, class: 'p-button c-button--header'
+            %li.l-gnav__link
+              = link_to 'メッセージ', message_rooms_path
             %li.l-gnav__avatar.dropdown
               %a.l-gnav__user-info.dropdown-toggle{"data-bs-toggle" => "dropdown", "aria-expanded" => "false", "id" => "dropdownUserLink", "href" => "#"}
                 = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
