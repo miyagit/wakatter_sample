@@ -1,24 +1,69 @@
-# README
+## 必要な環境
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- **Ruby**: バージョン `3.1.2`
+- **Rails**: バージョン `7.0.3.1`
+- **MySQL**: バージョン `5.7` 以上
+- **Node.js**: 推奨バージョン `16.x`
+- **Yarn**: 推奨バージョン `1.x`
 
-Things you may want to cover:
+## セットアップ手順
 
-* Ruby version
+### 1. リポジトリをクローンする
 
-* System dependencies
+まず、以下のコマンドを実行してリポジトリをローカルにクローンします。
 
-* Configuration
+```bash
+git clone git@github.com:miyagit/wakatter_sample.git
+cd wakatter_sample
+```
 
-* Database creation
+### 2. 必要なGemをインストールする
 
-* Database initialization
+Bundlerを使用してGemをインストールします。
 
-* How to run the test suite
+```bash
+gem install bundler
+bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### 3. データベースをセットアップする
 
-* Deployment instructions
+以下のコマンドを順番に実行してデータベースを作成し、初期データを投入します。
 
-* ...
+```bash
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+### 4. Webpackerをセットアップする
+
+Webpackerをインストールしてフロントエンドの依存関係をセットアップします。
+
+```bash
+yarn install
+```
+
+### 5. サーバーを起動する
+
+以下のコマンドを実行してRailsサーバーを起動します。
+
+```bash
+rails s
+```
+
+ターミナルの別タブでWebpackerを起動します。
+
+```bash
+./bin/webpack-dev-server
+```
+
+### 6. アプリケーションを表示する
+
+ブラウザを開き、以下のURLにアクセスしてください。
+
+```
+http://localhost:3000
+```
+
+トップページが表示されればセットアップは完了です。
