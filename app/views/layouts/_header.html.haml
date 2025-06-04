@@ -21,7 +21,7 @@
             %li.l-gnav__avatar.dropdown
               %a.l-gnav__user-info.dropdown-toggle{"data-bs-toggle" => "dropdown", "aria-expanded" => "false", "id" => "dropdownUserLink", "href" => "#"}
                 = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
-                %p.l-gnav__user-name ito_sayaka
+                %p.l-gnav__user-name= current_user.username
               %ul.l-gnav__user-menu.dropdown-menu{"aria-labelledby" => "dropdownUserLink"}
                 %li.l-gnav__user-link
                   = link_to 'マイページ', edit_user_registration_path
