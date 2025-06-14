@@ -1,3 +1,5 @@
 Time::DATE_FORMATS[:default] = "%Y.%-m.%d"
 Time::DATE_FORMATS[:date] = "%m/%d"
+Time::DATE_FORMATS[:time_only] = "%H:%M"
 DateTime::DATE_FORMATS[:date] = "%m月%d日"
+DateTime::DATE_FORMATS[:time_only] = "%H:%M"

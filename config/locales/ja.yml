@@ -1,0 +1,30 @@
+ja:
+  time:
+    formats:
+      default: "%Y年%m月%d日"
+      short: "%m月%d日"
+      time_only: "%H:%M"
+  
+  activerecord:
+    models:
+      user: ユーザー
+      post: 投稿
+      direct_message: メッセージ
+    attributes:
+      user:
+        username: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        current_password: 現在のパスワード
+        avatar: プロフィール画像
+        job: 職業
+        profile: 自己紹介
+      post:
+        title: タイトル
+        url: URL
+        description: 説明
+        category: カテゴリー
+        image: 画像
+      direct_message:
+        content: メッセージ

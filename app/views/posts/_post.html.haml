@@ -8,7 +8,10 @@
           = image_tag post.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
         - else
           = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
-        = link_to post.user.username, '#', class: 'l-article__username'
+        - if post.user != current_user
+          = link_to post.user.username, user_direct_messages_path(post.user), class: 'l-article__username'
+        - else
+          %span.l-article__username= post.user.username
         .l-article__category-box
           %span.l-article__squarebox= post.category.name
           %time= post.created_at.to_s

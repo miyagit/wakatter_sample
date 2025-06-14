@@ -15,4 +15,8 @@ Rails.application.routes.draw do
     resources :post_comments, only: :create, controller: 'posts/comments'
     resource :like, only: %i[create destroy], controller: 'posts/like'
   end
+
+  resources :users do
+    resources :direct_messages, only: [:index, :create]
+  end
 end
