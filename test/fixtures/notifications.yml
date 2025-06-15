@@ -1,13 +1,4 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  recipient: one
-  actor: two
-  notifiable: one (PostLike)
-  read: false
-
-two:
-  recipient: two
-  actor: one
-  notifiable: one (PostComment)
-  read: true
+# Note: These fixtures will be created by tests rather than loaded directly
+# due to the polymorphic nature of the notifiable association
