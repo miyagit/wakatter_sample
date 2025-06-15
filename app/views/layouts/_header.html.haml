@@ -31,17 +31,22 @@
             %li.l-gnav__news.dropdown
               %a.l-gnav__bell.js-activeNews.dropdown-toggle{"data-bs-toggle" => "dropdown", "aria-expanded" => "false", "id" => "dropdownNewsLink", "href" => "#"}
                 = icon('fas', 'bell')
+                - if current_user.notifications.unread.exists?
+                  %span.badge.badge-danger= current_user.notifications.unread.count
               %ul.l-gnav__news-menu.dropdown-menu{"aria-labelledby" => "dropdownNewsLink"}
                 %li.l-gnav__news-title お知らせ
-                %li.l-gnav__news-link
-                  = link_to '【本当に必要？】テレワークを続けた中で通勤時間について考えてみた', '#'
-                  に「わかった！」がつきました。
-                %li.l-gnav__news-link
-                  = link_to '「医学部合格者数関西1位」女子校教師の証言「女子が理数系を苦手なのではない」を読んで', '#'
-                  にコメントがつきました。
-                %li.l-gnav__news-link
-                  = link_to '"A Message from Co-Founder and CEO Brian Chesky"を読んで', '#'
-                  にコメントがつきました。
+                - if current_user.notifications.recent.limit(5).exists?
+                  - current_user.notifications.recent.limit(5).each do |notification|
+                    %li.l-gnav__news-link{class: notification.read? ? '' : 'unread'}
+                      - if notification.post
+                        = link_to notification.post.title.truncate(30), post_path(notification.post)
+                        = notification.message
+                      - else
+                        = notification.message
+                  %li.l-gnav__news-link
+                    = link_to '全ての通知を見る', notifications_path
+                - else
+                  %li.l-gnav__news-link 新しい通知はありません
       - else
         .l-gnav__contents--before-login
           %ul.l-gnav__list
