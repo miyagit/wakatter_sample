@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resource :mypage, only: :show
   end
 
+  resources :users, only: [] do
+    resource :follow, only: [:create, :destroy], controller: 'follows'
+  end
+
   namespace :posts do
     resources  :sort, only: %i[index]
   end
