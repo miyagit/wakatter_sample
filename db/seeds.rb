@@ -163,3 +163,91 @@ post_comments = [
 post_comments.each do |comment|
   PostComment.find_or_create_by!(body: comment[:body], user_id: comment[:user_id], post_id: comment[:post_id])
 end
+
+# いいね作成
+post_likes = [
+  # Ruby/Rails関連の投稿にプログラマーがいいね
+  { user_id: 1, post_id: 1 }, # ぴっかちゃん(プログラマー) → Rubyの基本
+  { user_id: 2, post_id: 1 }, # pikawaka(エンジニア) → Rubyの基本
+  { user_id: 4, post_id: 1 }, # コード太郎(学生) → Rubyの基本
+  { user_id: 6, post_id: 1 }, # ウェブ次郎(フリーランス) → Rubyの基本
+  
+  { user_id: 1, post_id: 3 }, # ぴっかちゃん(プログラマー) → Railsのチュートリアル
+  { user_id: 4, post_id: 3 }, # コード太郎(学生) → Railsのチュートリアル
+  { user_id: 6, post_id: 3 }, # ウェブ次郎(フリーランス) → Railsのチュートリアル
+  { user_id: 7, post_id: 3 }, # プログラミング初心者(会社員) → Railsのチュートリアル
+  
+  # JavaScript/フロントエンド関連の投稿にフロントエンド開発者がいいね
+  { user_id: 2, post_id: 6 }, # pikawaka(エンジニア) → JavaScript MDN
+  { user_id: 3, post_id: 6 }, # あの(デザイナー) → JavaScript MDN
+  { user_id: 4, post_id: 6 }, # コード太郎(学生) → JavaScript MDN
+  { user_id: 6, post_id: 6 }, # ウェブ次郎(フリーランス) → JavaScript MDN
+  
+  { user_id: 2, post_id: 7 }, # pikawaka(エンジニア) → HTML5/CSS3の基礎
+  { user_id: 3, post_id: 7 }, # あの(デザイナー) → HTML5/CSS3の基礎
+  { user_id: 4, post_id: 7 }, # コード太郎(学生) → HTML5/CSS3の基礎
+  { user_id: 7, post_id: 7 }, # プログラミング初心者(会社員) → HTML5/CSS3の基礎
+  
+  { user_id: 2, post_id: 9 }, # pikawaka(エンジニア) → React公式チュートリアル
+  { user_id: 3, post_id: 9 }, # あの(デザイナー) → React公式チュートリアル
+  { user_id: 6, post_id: 9 }, # ウェブ次郎(フリーランス) → React公式チュートリアル
+  
+  { user_id: 2, post_id: 13 }, # pikawaka(エンジニア) → Vue.js入門ガイド
+  { user_id: 3, post_id: 13 }, # あの(デザイナー) → Vue.js入門ガイド
+  { user_id: 6, post_id: 13 }, # ウェブ次郎(フリーランス) → Vue.js入門ガイド
+  { user_id: 7, post_id: 13 }, # プログラミング初心者(会社員) → Vue.js入門ガイド
+  
+  # Git関連は全ての開発者がいいね
+  { user_id: 1, post_id: 8 }, # ぴっかちゃん(プログラマー) → Git入門ガイド
+  { user_id: 2, post_id: 8 }, # pikawaka(エンジニア) → Git入門ガイド
+  { user_id: 4, post_id: 8 }, # コード太郎(学生) → Git入門ガイド
+  { user_id: 5, post_id: 8 }, # テック花子(データサイエンティスト) → Git入門ガイド
+  { user_id: 6, post_id: 8 }, # ウェブ次郎(フリーランス) → Git入門ガイド
+  { user_id: 8, post_id: 8 }, # AIエンジニア → Git入門ガイド
+  
+  # Python/データ分析関連にデータサイエンティスト、AIエンジニアがいいね
+  { user_id: 4, post_id: 5 }, # コード太郎(学生) → Python入門講座
+  { user_id: 5, post_id: 5 }, # テック花子(データサイエンティスト) → Python入門講座
+  { user_id: 8, post_id: 5 }, # AIエンジニア → Python入門講座
+  
+  { user_id: 1, post_id: 12 }, # ぴっかちゃん(プログラマー) → Pythonでデータ分析入門
+  { user_id: 4, post_id: 12 }, # コード太郎(学生) → Pythonでデータ分析入門
+  { user_id: 5, post_id: 12 }, # テック花子(データサイエンティスト) → Pythonでデータ分析入門
+  { user_id: 8, post_id: 12 }, # AIエンジニア → Pythonでデータ分析入門
+  
+  # SQL関連に開発者、データサイエンティストがいいね
+  { user_id: 1, post_id: 10 }, # ぴっかちゃん(プログラマー) → SQLの基礎
+  { user_id: 4, post_id: 10 }, # コード太郎(学生) → SQLの基礎
+  { user_id: 5, post_id: 10 }, # テック花子(データサイエンティスト) → SQLの基礎
+  { user_id: 8, post_id: 10 }, # AIエンジニア → SQLの基礎
+  
+  # デザイン関連にデザイナー、フロントエンド開発者がいいね
+  { user_id: 1, post_id: 11 }, # ぴっかちゃん(プログラマー) → Adobe XDでUI/UXデザイン入門
+  { user_id: 2, post_id: 11 }, # pikawaka(エンジニア) → Adobe XDでUI/UXデザイン入門
+  { user_id: 3, post_id: 11 }, # あの(デザイナー) → Adobe XDでUI/UXデザイン入門
+  { user_id: 7, post_id: 11 }, # プログラミング初心者(会社員) → Adobe XDでUI/UXデザイン入門
+  
+  # AWS/Docker関連にエンジニアがいいね
+  { user_id: 1, post_id: 14 }, # ぴっかちゃん(プログラマー) → AWSクラウド入門
+  { user_id: 2, post_id: 14 }, # pikawaka(エンジニア) → AWSクラウド入門
+  { user_id: 6, post_id: 14 }, # ウェブ次郎(フリーランス) → AWSクラウド入門
+  { user_id: 8, post_id: 14 }, # AIエンジニア → AWSクラウド入門
+  
+  { user_id: 1, post_id: 15 }, # ぴっかちゃん(プログラマー) → Docker入門チュートリアル
+  { user_id: 2, post_id: 15 }, # pikawaka(エンジニア) → Docker入門チュートリアル
+  { user_id: 5, post_id: 15 }, # テック花子(データサイエンティスト) → Docker入門チュートリアル
+  { user_id: 6, post_id: 15 }, # ウェブ次郎(フリーランス) → Docker入門チュートリアル
+  
+  # 一般的な関心で料理レシピやPayPal、お役立ち情報にもいいね
+  { user_id: 2, post_id: 2 }, # pikawaka(エンジニア) → カレーライス
+  { user_id: 6, post_id: 2 }, # ウェブ次郎(フリーランス) → カレーライス
+  { user_id: 7, post_id: 2 }, # プログラミング初心者(会社員) → カレーライス
+  
+  { user_id: 3, post_id: 4 }, # あの(デザイナー) → PayPalの使い方
+  { user_id: 6, post_id: 4 }, # ウェブ次郎(フリーランス) → PayPalの使い方
+  { user_id: 7, post_id: 4 }  # プログラミング初心者(会社員) → PayPalの使い方
+]
+
+post_likes.each do |like|
+  PostLike.find_or_create_by!(user_id: like[:user_id], post_id: like[:post_id])
+end
