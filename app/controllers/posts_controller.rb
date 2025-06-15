@@ -47,6 +47,20 @@ class PostsController < ApplicationController
     redirect_to posts_path, flash: {notice: "削除が完了しました。"}
   end
 
+  def search
+    search_params = {
+      q: params[:q],
+      title: params[:title],
+      url: params[:url],
+      username: params[:username],
+      category: params[:category]
+    }
+    
+    @posts = Post.search(search_params).order(created_at: :desc)
+    @sidebar_posts = Post.order(likes_count: :DESC)
+    render :index
+  end
+
   private
 
   def post_params

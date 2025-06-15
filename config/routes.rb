@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :post_comments, only: :create, controller: 'posts/comments'
     resource :like, only: %i[create destroy], controller: 'posts/like'
+    collection do
+      get :search
+    end
   end
 end
