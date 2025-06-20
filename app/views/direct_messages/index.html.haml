@@ -1,0 +1,14 @@
+.direct-messages-container
+  .messages-header
+    %h2= "#{@other_user.username}とのメッセージ"
+  
+  .messages-list
+    - @messages.each do |message|
+      .message{class: message.sender == current_user ? 'message-sent' : 'message-received'}
+        .message-content= message.content
+        .message-time= l(message.created_at, format: :time_only)
+
+  .message-form
+    = form_with(model: [@other_user, @message], local: true, class: 'message-input-form') do |f|
+      = f.text_area :content, class: 'message-input', placeholder: 'メッセージを入力...'
+      = f.submit '送信', class: 'message-submit'
