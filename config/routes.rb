@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resource :mypage, only: :show
   end
 
+  resources :users, only: :show
+
   namespace :posts do
     resources  :sort, only: %i[index]
   end
