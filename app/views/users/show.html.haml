@@ -1,0 +1,39 @@
+.l-main__header
+  %h2.l-main__header__title= "#{@user.username}さんの詳細ページ"
+  .l-main__header__user-info
+    - if @user.avatar.present?
+      = image_tag @user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
+    - else
+      = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
+    %p.l-main__header__username= @user.username
+
+.l-main__contents
+  %ul.l-main__contents__orderlist
+    %li.l-main__contents__orderlist-item
+      = link_to '投稿一覧', user_path(@user, tab: 'posts'), class: "#{params[:tab] != 'likes' && params[:tab] != 'comments' ? 'active' : ''}"
+    %li.l-main__contents__orderlist-item
+      = link_to 'いいね一覧', user_path(@user, tab: 'likes'), class: "#{params[:tab] == 'likes' ? 'active' : ''}"
+    %li.l-main__contents__orderlist-item
+      = link_to 'コメント一覧', user_path(@user, tab: 'comments'), class: "#{params[:tab] == 'comments' ? 'active' : ''}"
+
+  .l-main__contents__box
+    .l-article__wrapper
+      - case params[:tab]
+      - when 'likes'
+        %h3 いいね一覧 (#{@liked_posts.count}件)
+        - if @liked_posts.any?
+          = render @liked_posts
+        - else
+          %p.l-article__empty-message まだいいねがありません。
+      - when 'comments'
+        %h3 コメント一覧 (#{@commented_posts.count}件)
+        - if @commented_posts.any?
+          = render @commented_posts
+        - else
+          %p.l-article__empty-message まだコメントがありません。
+      - else
+        %h3 投稿一覧 (#{@user_posts.count}件)
+        - if @user_posts.any?
+          = render @user_posts
+        - else
+          %p.l-article__empty-message まだ投稿がありません。
