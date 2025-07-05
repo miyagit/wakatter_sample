@@ -20,4 +20,10 @@ Rails.application.routes.draw do
     resources :post_comments, only: :create, controller: 'posts/comments'
     resource :like, only: %i[create destroy], controller: 'posts/like'
   end
+
+  # Group routes
+  resources :groups do
+    resources :posts, only: %i[index show new create], controller: 'groups/posts'
+    resources :members, only: %i[create update destroy], controller: 'group_members'
+  end
 end

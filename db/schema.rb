@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2020_04_26_023207) do
+ActiveRecord::Schema[7.0].define(version: 2025_07_05_083954) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -25,6 +25,37 @@ ActiveRecord::Schema[7.0].define(version: 2020_04_26_023207) do
     t.index ["followed_id"], name: "index_follows_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_follows_on_follower_id"
+  end
+
+  create_table "group_members", force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "user_id", null: false
+    t.string "role", default: "member", null: false
+    t.string "status", default: "pending", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id", "user_id"], name: "index_group_members_on_group_id_and_user_id", unique: true
+    t.index ["group_id"], name: "index_group_members_on_group_id"
+    t.index ["user_id"], name: "index_group_members_on_user_id"
+  end
+
+  create_table "group_posts", force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id", "post_id"], name: "index_group_posts_on_group_id_and_post_id", unique: true
+    t.index ["group_id"], name: "index_group_posts_on_group_id"
+    t.index ["post_id"], name: "index_group_posts_on_post_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.integer "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_groups_on_creator_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -78,6 +109,11 @@ ActiveRecord::Schema[7.0].define(version: 2020_04_26_023207) do
 
   add_foreign_key "follows", "users", column: "followed_id"
   add_foreign_key "follows", "users", column: "follower_id"
+  add_foreign_key "group_members", "groups"
+  add_foreign_key "group_members", "users"
+  add_foreign_key "group_posts", "groups"
+  add_foreign_key "group_posts", "posts"
+  add_foreign_key "groups", "users", column: "creator_id"
   add_foreign_key "post_comments", "posts"
   add_foreign_key "post_comments", "users"
   add_foreign_key "post_likes", "posts"
