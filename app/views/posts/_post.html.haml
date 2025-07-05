@@ -9,6 +9,13 @@
         - else
           = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
         = link_to post.user.username, '#', class: 'l-article__username'
+        - if user_signed_in? && current_user != post.user
+          - if current_user.following?(post.user)
+            = link_to user_follow_path(post.user), method: :delete, class: 'btn btn-sm btn-outline-secondary ms-2' do
+              フォロー解除
+          - else
+            = link_to user_follow_path(post.user), method: :post, class: 'btn btn-sm btn-primary ms-2' do
+              フォロー
         .l-article__category-box
           %span.l-article__squarebox= post.category.name
           %time= post.created_at.to_s
