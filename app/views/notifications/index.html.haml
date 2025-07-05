@@ -1,0 +1,21 @@
+%h1 通知一覧
+
+.notifications-actions
+  = link_to '全て既読にする', mark_all_as_read_notifications_path, method: :patch, class: 'btn btn-primary'
+
+.notifications-list
+  - if @notifications.any?
+    - @notifications.each do |notification|
+      .notification-item{class: notification.read? ? 'read' : 'unread'}
+        .notification-content
+          = notification.message
+          - if notification.post
+            .notification-post
+              投稿: #{link_to notification.post.title.truncate(50), post_path(notification.post)}
+        .notification-meta
+          %span.notification-time= time_ago_in_words(notification.created_at) + '前'
+          - unless notification.read?
+            = link_to '既読にする', mark_as_read_notification_path(notification), method: :patch, class: 'btn btn-sm btn-secondary'
+  - else
+    .no-notifications
+      通知はありません
