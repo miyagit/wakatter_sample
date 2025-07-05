@@ -1,0 +1,20 @@
+%section.l-main__search
+  = form_tag('/posts/search', method: 'get', class: 'l-main__search__form') do
+    = text_field_tag(:q, '', class: 'l-main__search__form-input', placeholder: '気になるワードで投稿を検索')
+    = submit_tag('検索', name: nil, class: 'l-main__search__form-submit p-button__hero-search c-button--search')
+.l-main__contents
+  = render 'posts/order_tab', active: 'follow'
+  .l-main__contents__box
+    .l-article__wrapper
+      - if @posts.any?
+        = render partial: 'posts/post', collection: @posts, as: 'post'
+      - elsif user_signed_in?
+        .l-article
+          %p フォローしているユーザーの投稿がありません。
+      - else
+        .l-article
+          %p フォローしている投稿を見るにはログインが必要です。
+    .l-sidebar
+      %p.l-sidebar__heading 人気投稿順
+      .l-sidebar__wrapper
+        = render partial: 'layouts/sidebar', collection: @sidebar_posts, as: 'post'
