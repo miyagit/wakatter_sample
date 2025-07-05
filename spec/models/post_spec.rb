@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   describe '#liked_by?' do
+    subject { post.liked_by?(user) }
+    
     let(:user) { create(:user) }
     let(:other_user) { create(:user) }
     let(:post) { create(:post) }
@@ -12,13 +14,13 @@ RSpec.describe Post, type: :model do
       end
 
       it 'returns true' do
-        expect(post.liked_by?(user)).to be true
+        is_expected.to be true
       end
     end
 
     context 'when user has not liked the post' do
       it 'returns false' do
-        expect(post.liked_by?(user)).to be false
+        is_expected.to be false
       end
     end
 
@@ -28,11 +30,15 @@ RSpec.describe Post, type: :model do
       end
 
       it 'returns false for the user who did not like it' do
-        expect(post.liked_by?(user)).to be false
+        is_expected.to be false
       end
 
-      it 'returns true for the user who liked it' do
-        expect(post.liked_by?(other_user)).to be true
+      context 'for the user who liked it' do
+        subject { post.liked_by?(other_user) }
+
+        it 'returns true' do
+          is_expected.to be true
+        end
       end
     end
   end

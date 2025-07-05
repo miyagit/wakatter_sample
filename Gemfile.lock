@@ -126,7 +126,7 @@ GEM
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
     ffi (1.17.2-x86_64-darwin)
-    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux)
     fog-aws (3.32.0)
       base64 (~> 0.2.0)
       fog-core (~> 2.6)
@@ -209,7 +209,7 @@ GEM
     nio4r (2.7.4)
     nokogiri (1.18.8-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.8-x86_64-linux-gnu)
+    nokogiri (1.18.8-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pry (0.15.2)
@@ -360,7 +360,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
-  x86_64-linux-gnu
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (~> 1.14)
@@ -396,7 +396,7 @@ DEPENDENCIES
   webpacker (~> 5.4)
 
 RUBY VERSION
-   ruby 3.2.3p157
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.6.3
