@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :posts do
     resources  :sort, only: %i[index]
+    resources  :follow, only: %i[index]
   end
 
   resources :posts do
