@@ -24,13 +24,10 @@ a {
   display: block;
   text-decoration: none;
   color: $blue;
-    &:visited {
-      color: $blue;
-    }
-    &:hover {
-      color: $hover-light-blue;
-      @extend %transition;
-    }
+  &:hover {
+    color: $hover-light-blue;
+    @extend %transition;
+  }
 }
 button, input[type="submit"] {
   @extend %transition;
