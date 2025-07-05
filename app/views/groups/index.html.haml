@@ -1,2 +1,32 @@
-%h1 Groups#index
-%p Find me in app/views/groups/index.html.haml
+%section.l-main__search
+  = form_tag(groups_path, method: 'get', class: 'l-main__search__form') do
+    = text_field_tag(:q, '', class: 'l-main__search__form-input', placeholder: 'グループ名で検索')
+    = submit_tag('検索', name: nil, class: 'l-main__search__form-submit p-button__hero-search c-button--search')
+
+.l-main__contents
+  .l-main__header
+    %h2.l-main__header__title グループ一覧
+    - if user_signed_in?
+      = link_to 'グループを作成', new_group_path, class: 'p-button c-button--submit'
+
+  .l-main__contents__box
+    .l-article__wrapper
+      - @groups.each do |group|
+        .l-article
+          .l-article__header
+            .l-article__header--left
+              .l-article__user-info
+                - if group.creator.avatar.present?
+                  = image_tag group.creator.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
+                - else
+                  = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
+                = link_to group.creator.username, '#', class: 'l-article__username'
+                .l-article__category-box
+                  %span.l-article__squarebox グループ
+                  %time= group.created_at.to_s
+          .l-article__main
+            = link_to group.name, group_path(group), class: 'l-article__title'
+            .l-article__description
+              = simple_format(group.description) if group.description.present?
+          .l-article__footer
+            %span.l-article__footer-label メンバー数: #{group.group_members.accepted.count}人
