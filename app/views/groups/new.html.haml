@@ -1,0 +1,14 @@
+.l-main
+  .l-main__header
+    %h2.l-main__header__title グループを作成
+  .l-form
+    = form_with model: @group, url: groups_path, local: true, class: 'p-form__input' do |f|
+      = render 'layouts/validation_error', instance: @group if @group.errors.any?
+      .p-form__input-field
+        = f.label :name, 'グループ名', class: 'require'
+        = f.text_field :name, autofocus: true
+      .p-form__input-field
+        = f.label :description, 'グループ説明', class: 'option'
+        = f.text_area :description, autofocus: true, class: 'js-postarea_resize'
+      .p-form__input-submit
+        = f.submit "作成する", class: 'p-button c-button--submit'

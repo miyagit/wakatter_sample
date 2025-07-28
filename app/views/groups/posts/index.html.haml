@@ -1,0 +1,19 @@
+%section.l-main__search
+  = form_tag(group_posts_path(@group), method: 'get', class: 'l-main__search__form') do
+    = text_field_tag(:q, '', class: 'l-main__search__form-input', placeholder: 'グループ投稿を検索')
+    = submit_tag('検索', name: nil, class: 'l-main__search__form-submit p-button__hero-search c-button--search')
+
+.l-main__contents
+  .l-main__header
+    %h2.l-main__header__title #{@group.name} の投稿
+    = link_to 'グループに戻る', group_path(@group), class: 'btn btn-sm btn-outline-secondary'
+    - if user_signed_in? && current_user.member_of?(@group)
+      = link_to '投稿する', new_group_post_path(@group), class: 'p-button c-button--submit'
+
+  .l-main__contents__box
+    .l-article__wrapper
+      = render @posts
+    .l-sidebar
+      %p.l-sidebar__heading 人気投稿順
+      .l-sidebar__wrapper
+        = render partial: 'layouts/sidebar', collection: @sidebar_posts, as: 'post'

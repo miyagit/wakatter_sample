@@ -1,0 +1,61 @@
+.l-main__contents
+  .l-main__header
+    %h2.l-main__header__title= @group.name
+    - if user_signed_in?
+      - if current_user.admin_of?(@group)
+        = link_to '編集', edit_group_path(@group), class: 'btn btn-sm btn-outline-primary'
+        = link_to '削除', group_path(@group), method: :delete, class: 'btn btn-sm btn-outline-danger', data: { confirm: "本当に削除しますか？" }
+      - elsif current_user.member_of?(@group)
+        %span.text-success メンバー
+      - elsif current_user.pending_member_of?(@group)
+        %span.text-warning 申請中
+      - else
+        = link_to '参加申請', group_members_path(@group), method: :post, class: 'btn btn-sm btn-primary'
+
+  .l-main__contents__box
+    - if @group.description.present?
+      .l-article
+        .l-article__main
+          .l-article__description
+            = simple_format(@group.description)
+
+    %h3 グループ投稿
+    - if user_signed_in? && current_user.member_of?(@group)
+      = link_to 'グループに投稿', new_group_post_path(@group), class: 'p-button c-button--submit mb-3'
+
+    .l-article__wrapper
+      - @group_posts.each do |post|
+        = render 'posts/post', post: post
+
+    %h3 メンバー一覧 (#{@members.count}人)
+    .members-list
+      - @members.each do |member|
+        .member-item.d-flex.align-items-center.mb-2
+          - if member.user.avatar.present?
+            = image_tag member.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round me-2'
+          - else
+            = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round me-2'
+          %span= member.user.username
+          - if member.role == 'admin'
+            %span.badge.bg-warning.ms-2 管理者
+          - if current_user&.admin_of?(@group) && member.user != current_user
+            .ms-auto
+              - unless member.role == 'admin'
+                = link_to '管理者にする', group_member_path(@group, member), method: :patch, params: { action_type: 'make_admin' }, class: 'btn btn-sm btn-outline-warning'
+              - else
+                = link_to '管理者解除', group_member_path(@group, member), method: :patch, params: { action_type: 'remove_admin' }, class: 'btn btn-sm btn-outline-secondary'
+              = link_to '削除', group_member_path(@group, member), method: :delete, class: 'btn btn-sm btn-outline-danger ms-1', data: { confirm: "本当に削除しますか？" }
+
+    - if current_user&.admin_of?(@group) && @pending_members.any?
+      %h3 承認待ちメンバー (#{@pending_members.count}人)
+      .pending-members-list
+        - @pending_members.each do |member|
+          .member-item.d-flex.align-items-center.mb-2
+            - if member.user.avatar.present?
+              = image_tag member.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round me-2'
+            - else
+              = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round me-2'
+            %span= member.user.username
+            .ms-auto
+              = link_to '承認', group_member_path(@group, member), method: :patch, params: { action_type: 'approve' }, class: 'btn btn-sm btn-success'
+              = link_to '拒否', group_member_path(@group, member), method: :patch, params: { action_type: 'reject' }, class: 'btn btn-sm btn-danger ms-1'

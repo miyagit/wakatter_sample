@@ -1,0 +1,8 @@
+.l-main__contents
+  .l-main__header
+    %h2.l-main__header__title #{@group.name} の投稿詳細
+    = link_to 'グループに戻る', group_path(@group), class: 'btn btn-sm btn-outline-secondary'
+
+  .l-main__contents__box
+    .l-article__wrapper
+      = render 'posts/post', post: @post
