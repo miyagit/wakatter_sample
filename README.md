@@ -17,16 +17,25 @@ git clone git@github.com:miyagit/wakatter_sample.git
 cd wakatter_sample
 ```
 
-### 2. 必要なGemをインストールする
+### 2. Bundleの環境設定をする
 
 Bundlerを使用してGemをインストールします。
 
 ```bash
-gem install bundler
+bundle config set --local path 'vendor/bundle'
+bundle config set --local build.mysql2 '--with-ldflags=-L/usr/local/opt/openssl/lib'
+```
+
+
+### 3. 必要なGemをインストールする
+
+Bundlerを使用してGemをインストールします。
+
+```bash
 bundle install
 ```
 
-### 3. データベースをセットアップする
+### 4. データベースをセットアップする
 
 以下のコマンドを順番に実行してデータベースを作成し、初期データを投入します。
 
@@ -36,7 +45,7 @@ rails db:migrate
 rails db:seed
 ```
 
-### 4. Webpackerをセットアップする
+### 5. Webpackerをセットアップする
 
 Webpackerをインストールしてフロントエンドの依存関係をセットアップします。
 
@@ -44,7 +53,7 @@ Webpackerをインストールしてフロントエンドの依存関係をセ�
 yarn install
 ```
 
-### 5. サーバーを起動する
+### 6. サーバーを起動する
 
 以下のコマンドを実行してRailsサーバーを起動します。
 
@@ -58,7 +67,7 @@ rails s
 ./bin/webpack-dev-server
 ```
 
-### 6. アプリケーションを表示する
+### 7. アプリケーションを表示する
 
 ブラウザを開き、以下のURLにアクセスしてください。
 
