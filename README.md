@@ -17,9 +17,9 @@ git clone git@github.com:miyagit/wakatter_sample.git
 cd wakatter_sample
 ```
 
-### 2. Bundleの環境設定をする
+### 2. Bundlerのローカル設定を追加する
 
-Bundlerを使用してGemをインストールします。
+Bundlerのローカル設定で、インストール先とビルドオプションを指定します。
 
 ```bash
 bundle config set --local path 'vendor/bundle'
