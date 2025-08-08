@@ -13,27 +13,44 @@
         - if @user.profile.present?
           %p.l-user-profile__description= simple_format(@user.profile)
         
+        .l-user-profile__stats
+          .stats-grid
+            .stat-item
+              .stat-number= @user_posts.count
+              .stat-label 投稿
+            .stat-item
+              .stat-number= @liked_posts.count
+              .stat-label いいね
+            .stat-item
+              .stat-number= @commented_posts.count
+              .stat-label コメント
+        
         - if user_signed_in? && current_user != @user
           .l-user-profile__follow-button
             - if current_user.following?(@user)
               = link_to user_follow_path(@user), method: :delete, class: 'btn btn-outline-secondary' do
+                %i.fas.fa-user-minus.me-2
                 フォロー解除
             - else
               = link_to user_follow_path(@user), method: :post, class: 'btn btn-primary' do
+                %i.fas.fa-user-plus.me-2
                 フォロー
 
   .l-user-content
     %ul.nav.nav-tabs{"id" => "userTabs", "role" => "tablist"}
       %li.nav-item{"role" => "presentation"}
         %button.nav-link.active{"aria-controls" => "posts", "aria-selected" => "true", "data-bs-target" => "#posts", "data-bs-toggle" => "tab", "id" => "posts-tab", "type" => "button", "role" => "tab"}
+          %i.fas.fa-edit.me-2
           投稿一覧
           %span.badge.bg-secondary.ms-2= @user_posts.count
       %li.nav-item{"role" => "presentation"}
         %button.nav-link{"aria-controls" => "likes", "aria-selected" => "false", "data-bs-target" => "#likes", "data-bs-toggle" => "tab", "id" => "likes-tab", "type" => "button", "role" => "tab"}
+          %i.fas.fa-heart.me-2
           いいね一覧  
           %span.badge.bg-secondary.ms-2= @liked_posts.count
       %li.nav-item{"role" => "presentation"}
         %button.nav-link{"aria-controls" => "comments", "aria-selected" => "false", "data-bs-target" => "#comments", "data-bs-toggle" => "tab", "id" => "comments-tab", "type" => "button", "role" => "tab"}
+          %i.fas.fa-comments.me-2
           コメント一覧
           %span.badge.bg-secondary.ms-2= @commented_posts.count
 
@@ -43,18 +60,27 @@
           - if @user_posts.any?
             = render @user_posts
           - else
-            %p.text-muted.text-center 投稿はありません
+            %div.empty-state
+              %i.fas.fa-edit.empty-icon
+              %p.text-muted まだ投稿がありません
+              %small.text-muted このユーザーの投稿をお待ちください
 
       .tab-pane.fade{"aria-labelledby" => "likes-tab", "id" => "likes", "role" => "tabpanel"}
         .l-article__wrapper
           - if @liked_posts.any?
             = render @liked_posts
           - else
-            %p.text-muted.text-center いいねした投稿はありません
+            %div.empty-state
+              %i.fas.fa-heart.empty-icon
+              %p.text-muted まだいいねした投稿がありません
+              %small.text-muted このユーザーがいいねした投稿をお待ちください
 
       .tab-pane.fade{"aria-labelledby" => "comments-tab", "id" => "comments", "role" => "tabpanel"}
         .l-article__wrapper
           - if @commented_posts.any?
             = render @commented_posts
           - else
-            %p.text-muted.text-center コメントした投稿はありません
+            %div.empty-state
+              %i.fas.fa-comments.empty-icon
+              %p.text-muted まだコメントした投稿がありません
+              %small.text-muted このユーザーがコメントした投稿をお待ちください
