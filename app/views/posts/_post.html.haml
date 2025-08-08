@@ -8,7 +8,7 @@
           = image_tag post.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
         - else
           = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
-        = link_to post.user.username, '#', class: 'l-article__username'
+        = link_to post.user.username, user_path(post.user), class: 'l-article__username'
         - if user_signed_in? && current_user != post.user
           - if current_user.following?(post.user)
             = link_to user_follow_path(post.user), method: :delete, class: 'btn btn-sm btn-outline-secondary ms-2', style: 'font-size: 11px; width: 100px; align-self: flex-start; height: 25px;' do

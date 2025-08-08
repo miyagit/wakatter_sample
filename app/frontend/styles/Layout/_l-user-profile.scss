@@ -1,0 +1,66 @@
+.l-user-profile {
+  margin-bottom: 2rem;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 2rem;
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__username {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  &__job {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  &__follow-button {
+    margin-top: 1rem;
+  }
+}
+
+.l-user-content {
+  .nav-tabs {
+    margin-bottom: 1.5rem;
+    
+    .nav-link {
+      color: #666;
+      
+      &.active {
+        color: #007bff;
+        border-color: #007bff #dee2e6 #fff;
+      }
+    }
+  }
+
+  .tab-content {
+    min-height: 200px;
+  }
+
+  .text-muted {
+    padding: 3rem 0;
+  }
+}
