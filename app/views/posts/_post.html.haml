@@ -1,7 +1,7 @@
 .l-article
   .l-article__header
     .p-button__wakatta{class: "js-like-#{post.id}"}
-      = render 'like', post: post
+      = render 'posts/like', post: post
     .l-article__header--left
       .l-article__user-info
         - if post.user.avatar.present?
