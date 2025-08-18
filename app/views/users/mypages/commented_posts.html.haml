@@ -13,7 +13,7 @@
     .l-main__contents__box
       .l-article__wrapper
         - if @posts.any?
-          = render @posts
+          = render partial: 'posts/post', collection: @posts, as: 'post'
         - else
           .empty-state
             %p まだコメントした投稿がありません
