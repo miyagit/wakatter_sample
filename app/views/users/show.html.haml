@@ -1,0 +1,82 @@
+.l-main__header
+  %h2.l-main__header__title #{@user.username}さんの詳細ページ
+
+.l-main__contents
+  %ul.l-main__contents__orderlist
+    %li.l-main__contents__orderlist-item
+      %a{href: "#posts", class: "user-tab-link active", data: {tab: "posts"}} 投稿した記事 (#{@user_posts.count})
+    %li.l-main__contents__orderlist-item
+      %a{href: "#likes", class: "user-tab-link", data: {tab: "likes"}} いいねした記事 (#{@liked_posts.count})
+    %li.l-main__contents__orderlist-item
+      %a{href: "#comments", class: "user-tab-link", data: {tab: "comments"}} コメントした記事 (#{@commented_posts.count})
+  
+  .l-main__contents__box
+    .l-article__wrapper
+      #posts.tab-content.active
+        - if @user_posts.any?
+          = render partial: 'posts/post', collection: @user_posts, as: 'post'
+        - else
+          %p.text-center.mt-4 まだ投稿がありません
+      
+      #likes.tab-content{style: "display: none;"}
+        - if @liked_posts.any?
+          = render partial: 'posts/post', collection: @liked_posts, as: 'post'
+        - else
+          %p.text-center.mt-4 まだいいねした投稿がありません
+      
+      #comments.tab-content{style: "display: none;"}
+        - if @commented_posts.any?
+          = render partial: 'posts/post', collection: @commented_posts, as: 'post'
+        - else
+          %p.text-center.mt-4 まだコメントした投稿がありません
+    
+    .l-sidebar
+      %p.l-sidebar__heading ユーザー情報
+      .l-sidebar__wrapper
+        .user-info-card
+          - if @user.avatar.present?
+            = image_tag @user.avatar_url, alt: 'ユーザー画像', class: 'c-image__large__round'
+          - else
+            = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__large__round'
+          %h3.user-name= @user.username
+          - if @user.job.present?
+            %p.user-job= @user.job
+          - if @user.profile.present?
+            %p.user-profile= simple_format(@user.profile)
+          - if user_signed_in? && current_user != @user
+            .mt-3
+              - if current_user.following?(@user)
+                = link_to user_follow_path(@user), method: :delete, class: 'btn btn-outline-secondary', data: { confirm: "#{@user.username}さんのフォローを解除しますか？" } do
+                  フォロー解除
+              - else
+                = link_to user_follow_path(@user), method: :post, class: 'btn btn-primary' do
+                  フォロー
+
+:javascript
+  document.addEventListener('DOMContentLoaded', function() {
+    // タブの切り替え機能
+    const tabLinks = document.querySelectorAll('.user-tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // 全てのタブをdeactiveにする
+        tabLinks.forEach(function(l) { l.classList.remove('active'); });
+        tabContents.forEach(function(c) { 
+          c.style.display = 'none';
+          c.classList.remove('active');
+        });
+        
+        // クリックされたタブをactiveにする
+        this.classList.add('active');
+        const targetId = this.getAttribute('data-tab');
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+          targetContent.style.display = 'block';
+          targetContent.classList.add('active');
+        }
+      });
+    });
+  });

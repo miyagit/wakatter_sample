@@ -3,7 +3,7 @@
     = image_tag comment.user.avatar_url, alt: 'ユーザー画像', class: 'c-comment__avatar c-image__small__round'
   - else
     = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-comment__avatar c-image__small__round'
-  = link_to comment.user.username, '#', class: 'c-comment__username'
+  = link_to comment.user.username, user_path(comment.user), class: 'c-comment__username'
   %time.c-comment__time= comment.created_at.to_s
   .c-comment__detail
     = simple_format(comment.body)

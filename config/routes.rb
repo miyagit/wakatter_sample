@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :mypage, only: :show
   end
 
-  resources :users, only: [] do
+  resources :users, only: [:show] do
     resource :follow, only: [:create, :destroy], controller: 'follows'
   end
 
