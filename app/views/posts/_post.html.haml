@@ -50,7 +50,7 @@
     %span.l-article__footer-label コメント
     .l-article__footer__comment-area
       .l-article__footer__commentbox
-        = render(partial: 'comment', collection: post.post_comments, as: 'comment')
+        = render(partial: 'posts/comment', collection: post.post_comments, as: 'comment')
         .c-comment__form
           %span.c-comment__form__label コメントを投稿
           - if user_signed_in?
