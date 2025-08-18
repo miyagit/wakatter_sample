@@ -2,7 +2,7 @@
   "name": "wakatter_sample",
   "private": true,
   "engines": {
-    "node": "18.x"
+    "node": ">=18.x"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
