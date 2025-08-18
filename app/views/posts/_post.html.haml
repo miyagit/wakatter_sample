@@ -5,7 +5,7 @@
     .l-article__header--left
       .l-article__user-info
         - if post.user.avatar.present?
-          = image_tag post.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
+          = image_tag post.user.avatar.url, alt: 'ユーザー画像', class: 'c-image__middle__round'
         - else
           = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
         = link_to post.user.username, '#', class: 'l-article__username'
