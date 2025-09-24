@@ -1,0 +1,35 @@
+# Dockerfile.dev
+FROM ruby:3.1.2
+
+# Set environment variables
+ENV RAILS_ENV=development
+ENV BUNDLE_PATH=/gems
+
+# Install dependencies
+RUN apt-get update -qq && \
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g yarn && \
+    apt-get install -y default-mysql-client
+
+# Set working directory
+WORKDIR /app
+
+# Copy the Gemfile and Gemfile.lock
+COPY Gemfile* ./
+
+# Install Ruby gems
+RUN bundle install
+
+# Copy the rest of the application code
+COPY . .
+
+# Install JavaScript dependencies (includes webpacker)
+RUN yarn install --check-files
+
+# Expose ports for Rails (3000) and Webpack Dev Server (3035)
+EXPOSE 3000 3035
+
+# Start Rails server and Webpack Dev Server
+CMD ["bash", "-c", "rm -f tmp/pids/server.pid && ./bin/webpack-dev-server & bundle exec rails server -b 0.0.0.0"]
