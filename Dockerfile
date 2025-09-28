@@ -1,5 +1,5 @@
 # Dockerfile.dev
-FROM ruby:3.1.2
+FROM --platform=linux/amd64 ruby:3.1.2
 
 # Set environment variables
 ENV RAILS_ENV=development

@@ -6,24 +6,21 @@
 #
 default: &default
   adapter: mysql2
+  encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: <%= ENV["DATABASE_USERNAME"] || "root" %>
+  password: <%= ENV["DATABASE_PASSWORD"] || "" %>
+  host: <%= ENV["DATABASE_HOST"] || "localhost" %>
   timeout: 5000
 
 development:
   <<: *default
-  host: <%= ENV.fetch("DATABASE_HOST") { '' } %>
   database: wakatter_sample_development
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: wakatter_sample_test
 
 production:
   <<: *default
-  database: wakatter_sample_production
+  database: <%= ENV["DATABASE_NAME"] || "wakatter_sample_production" %>
