@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.order(created_at: :DESC)
+    @posts = if params[:q].present?
+               Post.search(params[:q]).order(created_at: :desc)
+             else
+               Post.order(created_at: :DESC)
+             end
     @sidebar_posts = Post.order(likes_count: :DESC)
   end
 
