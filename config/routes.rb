@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   scope module: :users do
-    resource :mypage, only: :show
+    resource :mypage, only: :show do
+      get :liked_posts
+      get :commented_posts
+    end
   end
 
   resources :users, only: [] do

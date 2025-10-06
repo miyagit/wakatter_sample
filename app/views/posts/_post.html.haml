@@ -1,11 +1,11 @@
 .l-article
   .l-article__header
     .p-button__wakatta{class: "js-like-#{post.id}"}
-      = render 'like', post: post
+      = render 'posts/like', post: post
     .l-article__header--left
       .l-article__user-info
         - if post.user.avatar.present?
-          = image_tag post.user.avatar_url, alt: 'ユーザー画像', class: 'c-image__middle__round'
+          = image_tag post.user.avatar.url, alt: 'ユーザー画像', class: 'c-image__middle__round'
         - else
           = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__middle__round'
         = link_to post.user.username, '#', class: 'l-article__username'
@@ -50,7 +50,7 @@
     %span.l-article__footer-label コメント
     .l-article__footer__comment-area
       .l-article__footer__commentbox
-        = render(partial: 'comment', collection: post.post_comments, as: 'comment')
+        = render(partial: 'posts/comment', collection: post.post_comments, as: 'comment')
         .c-comment__form
           %span.c-comment__form__label コメントを投稿
           - if user_signed_in?

@@ -1,0 +1,23 @@
+.l-main
+  .l-main__header
+    %h2.l-main__header__title わかった！した投稿
+  %ul.l-form__nav
+    %li.l-form__mypage-edit
+      = icon('fas', 'cog', class: 'fa-sm')
+      = link_to 'マイページ情報の編集', edit_user_registration_path
+    %li
+      = link_to 'わかった！した投稿', liked_posts_mypage_path, class: 'active'
+    %li
+      = link_to 'コメントした投稿', commented_posts_mypage_path
+  .l-main__contents
+    .l-main__contents__box
+      .l-article__wrapper
+        - if @posts.any?
+          = render partial: 'posts/post', collection: @posts, as: 'post'
+        - else
+          .empty-state
+            %p まだ「わかった！」した投稿がありません
+      .l-sidebar
+        %p.l-sidebar__heading 人気投稿順
+        .l-sidebar__wrapper
+          = render partial: 'layouts/sidebar', collection: @sidebar_posts, as: 'post'

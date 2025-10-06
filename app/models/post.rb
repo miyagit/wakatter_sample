@@ -11,4 +11,8 @@ class Post < ApplicationRecord
   def liked_by?(user)
     post_likes.exists?(user_id: user.id)
   end
+
+  def likes_count
+    super || 0
+  end
 end
