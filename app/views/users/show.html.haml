@@ -1,0 +1,57 @@
+.l-main__contents
+  .l-user-profile
+    .l-user-profile__header
+      .l-user-profile__avatar
+        - if @user.avatar.present?
+          = image_tag @user.avatar_url, alt: 'ユーザー画像', class: 'c-image__large__round'
+        - else
+          = image_pack_tag 'default_icon.png', alt: 'プロフィール画像', class: 'c-image__large__round'
+      .l-user-profile__info
+        %h1.l-user-profile__username= @user.username
+        - if @user.job.present?
+          %p.l-user-profile__job= @user.job
+        - if @user.profile.present?
+          %p.l-user-profile__bio= simple_format(@user.profile)
+        - if user_signed_in? && current_user != @user
+          - if current_user.following?(@user)
+            = link_to user_follow_path(@user), method: :delete, class: 'btn btn-outline-secondary mt-3' do
+              フォロー解除
+          - else
+            = link_to user_follow_path(@user), method: :post, class: 'btn btn-primary mt-3' do
+              フォロー
+  
+  %ul.nav.nav-tabs.mt-4#userTabs{role: "tablist"}
+    %li.nav-item{role: "presentation"}
+      %button.nav-link.active#posts-tab{"data-bs-toggle" => "tab", "data-bs-target" => "#posts", type: "button", role: "tab", "aria-controls" => "posts", "aria-selected" => "true"}
+        投稿一覧
+        %span.badge.bg-secondary.ms-2= @posts.count
+    %li.nav-item{role: "presentation"}
+      %button.nav-link#likes-tab{"data-bs-toggle" => "tab", "data-bs-target" => "#likes", type: "button", role: "tab", "aria-controls" => "likes", "aria-selected" => "false"}
+        いいねした投稿
+        %span.badge.bg-secondary.ms-2= @liked_posts.count
+    %li.nav-item{role: "presentation"}
+      %button.nav-link#comments-tab{"data-bs-toggle" => "tab", "data-bs-target" => "#comments", type: "button", role: "tab", "aria-controls" => "comments", "aria-selected" => "false"}
+        コメントした投稿
+        %span.badge.bg-secondary.ms-2= @commented_posts.count
+
+  .tab-content.mt-3#userTabsContent
+    .tab-pane.fade.show.active#posts{role: "tabpanel", "aria-labelledby" => "posts-tab"}
+      .l-article__wrapper
+        - if @posts.any?
+          = render @posts
+        - else
+          %p.text-center.text-muted.mt-5 まだ投稿がありません
+    
+    .tab-pane.fade#likes{role: "tabpanel", "aria-labelledby" => "likes-tab"}
+      .l-article__wrapper
+        - if @liked_posts.any?
+          = render partial: 'posts/post', collection: @liked_posts, as: 'post'
+        - else
+          %p.text-center.text-muted.mt-5 まだいいねした投稿がありません
+    
+    .tab-pane.fade#comments{role: "tabpanel", "aria-labelledby" => "comments-tab"}
+      .l-article__wrapper
+        - if @commented_posts.any?
+          = render partial: 'posts/post', collection: @commented_posts, as: 'post'
+        - else
+          %p.text-center.text-muted.mt-5 まだコメントした投稿がありません
